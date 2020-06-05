@@ -1,0 +1,125 @@
+.line,
+.pickup {
+  position: relative;
+  min-height: 30vh;
+}
+.newest {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.3rem;
+}
+.dashBody .item_number {
+  font: var(--win-subhead);
+}
+
+.line .new_bg {
+  background-color: var(--soft-yellow);
+}
+
+.pickup .new_bg {
+  background-color: var(--soft-purple);
+  color: var(--white);
+}
+.line .new_bg,
+.pickup .new_bg {
+  display: flex;
+  min-width: 8rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--rounded);
+  padding: 0.5rem;
+}
+
+.in_line {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  padding: 2rem 1rem 10rem;
+}
+.newest_num {
+  font: var(--win-smallnumbers);
+}
+.item {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: var(--rounded-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line .item {
+  background-color: var(--yellow);
+  color: var(--dark);
+}
+.pickup .item {
+  background-color: var(--purple);
+  color: var(--white);
+}
+.heading_new {
+  padding: 0 0 0.3rem 0.5rem;
+}
+
+.scale {
+  animation: scaley 0.5s ease 1 forwards;
+}
+@keyframes scaley {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (min-width: 800px) {
+  .line,
+  .pickup {
+    position: relative;
+    min-height: auto;
+  }
+}
+@media (min-width: 800px) and (orientation: portrait) {
+  @media (max-aspect-ratio: 3/4) {
+    .in_line {
+      padding: 2rem 1rem 1rem;
+    }
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) and (orientation: landscape) {
+  .in_line {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .dashBody .item_number {
+    font: var(--win-subhead);
+  }
+  .dashBody .in_line .item {
+    padding: 0.5rem;
+    height: auto;
+  }
+  .line .new_bg,
+  .pickup .new_bg {
+    padding: 0.5rem 1rem;
+    min-width: auto;
+  }
+}
+@media (min-width: 1400px) {
+  .line .new_bg,
+  .pickup .new_bg {
+    padding: 1.5rem;
+    min-width: 10rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .dashBody .item_number {
+    font: var(--title);
+  }
+  .item {
+    height: 3rem;
+  }
+}

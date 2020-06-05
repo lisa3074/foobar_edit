@@ -1,0 +1,114 @@
+.desk_nav {
+  background-color: var(--purple);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  box-shadow: -1px -1px 10px -5px var(--dark);
+  border-radius: var(--round-low);
+}
+.max_height {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+  .head2 {
+    display: none;
+  }
+  img {
+    width: auto;
+    height: 35px;
+    margin: 1rem 1rem;
+  }
+}
+.arrow_container {
+  display: none;
+}
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.chosen {
+  background-color: var(--soft-pink);
+  border-radius: 0 0 30px 30px;
+  color: var(--dark);
+}
+@media (min-width: 800px) {
+  .desk_nav {
+    height: 100%;
+    width: 13rem;
+    border-radius: var(--round-rd);
+    box-shadow: -1px -1px 15px -5px var(--dark);
+    z-index: 2;
+  }
+  .max_height {
+    flex-direction: column;
+    height: 100%;
+    max-height: 700px;
+    .menu_item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    img {
+      padding-right: 2rem;
+      width: 45px;
+    }
+    .head2 {
+      display: block;
+      padding-right: 0.5rem;
+      color: var(--white);
+    }
+    .arrow {
+      width: auto;
+      height: 28px;
+      padding: 0 2rem;
+      cursor: pointer;
+    }
+  }
+  .smooth_out {
+    transition: 1s;
+    transform: translateX(-8rem);
+    img {
+      transition: 1s;
+      padding-right: 1rem;
+      transform: translateX(0.5rem) rotate3d(0, 1, 0, 0deg);
+    }
+
+    .max_height .arrow {
+      transition: 1s;
+      transform: rotate3d(0, 1, 0, 360deg) translateX(10px);
+      padding: 0rem 1.5rem;
+    }
+    .chosen_img {
+      transition: 1s;
+      border-radius: 20px 0px 0px 20px;
+      background-color: var(--soft-pink);
+    }
+    .chosen {
+      background-color: rgba(255, 255, 255, 0);
+    }
+  }
+  .smooth_in {
+    transition: 1s;
+    transform: translateX(0rem);
+    img {
+      transition: 1s;
+      padding-right: 0rem;
+      transform: translateX(0rem) rotate3d(0, 1, 0, 180deg);
+    }
+    .max_height .arrow {
+      transition: 1s;
+      transform: rotate3d(0, 1, 0, 180deg) translateX(0px);
+      padding: 0rem 1.2rem;
+    }
+    .chosen {
+      transition: 1s;
+      border-radius: 20px 0 0 20px;
+      h2 {
+        color: var(--dark);
+      }
+    }
+  }
+}

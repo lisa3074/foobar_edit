@@ -1,0 +1,64 @@
+:root {
+  --purple: #9175bc;
+  --yellow: #e7cb79;
+  --white: #ffffff;
+  --dark: #3a2058;
+  --soft-pink: #fbf5fb;
+  --soft-yellow: #ece0c9;
+  --soft-purple: #bdacd7;
+  --soft-purple-light: #ddd3eb;
+  --soft-blue: rgb(192, 205, 242, 0.5);
+  --soft-gray: #b3a6be;
+
+  --reg: "proxima_novaregular", sans-serif;
+  --bold: "proxima_novabold", sans-serif;
+
+  --title: 1.7rem "proxima_novabold", sans-serif;
+  --head1: 1.3rem "proxima_novabold", sans-serif;
+  --head12: 1.1rem "proxima_novabold", sans-serif;
+  --head2: 0.95rem "proxima_novabold", sans-serif;
+  --head3: 0.95rem "proxima_novaregular", sans-serif;
+  --head4: 0.85rem "proxima_novabold", sans-serif;
+  --head5: 0.7rem "proxima_novabold", sans-serif;
+  --label: 0.85rem "proxima_novabold", sans-serif;
+  --invalid: 0.8rem "proxima_novaregular", sans-serif;
+  --paragraph: 0.85rem "proxima_novaregular", sans-serif;
+
+  --rounded: 30px;
+  --rounded-light: 20px;
+  --round-ru: 30px 0px 30px 30px;
+  --round-lu: 0px 30px 30px 30px;
+  --round-rd: 30px 30px 0 30px;
+  --round-ld: 30px 30px 30px 0;
+  --round-low: 30px 30px 0px 0;
+  --round-high: 0 0 30px 30px;
+  --round-right: 30px 0 0 30px;
+  --round-left: 0 30px 30px 0;
+
+  --gradient: linear-gradient(180deg, rgba(145, 117, 188, 1) 0%, rgba(231, 203, 121, 1) 100%);
+  --fallback: rgb(145, 117, 188);
+
+  --box-shadow: 3px 10px 20px -15px var(--dark);
+
+  --win-title: 1.7rem "proxima_novabold", sans-serif;
+  --win-subhead: 1.1rem "proxima_novabold", sans-serif;
+  --win-number: 4.5rem "proxima_novabold", sans-serif;
+  --win-percent: 2rem "proxima_novabold", sans-serif;
+  --win-paragraph: 1.05rem "proxima_novaregular", sans-serif;
+  --win-smallnumbers: 3.125rem "proxima_novabold", sans-serif;
+
+  --dash-big-numbers: 4rem "proxima_novabold", sans-serif;
+}
+
+@font-face {
+  font-family: "proxima_novabold";
+  src: url("/static/fonts/proxima_nova_bold-webfont.woff2") format("woff2"), url("/static/fonts/proxima_nova_bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "proxima_novaregular";
+  src: url("/static/fonts/proximanova-regular-webfont.woff2") format("woff2"), url("/static/fonts/proximanova-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

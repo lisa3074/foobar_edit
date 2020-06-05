@@ -1,0 +1,455 @@
+//GENERAL
+
+details:focus,
+summary:focus {
+  outline: 0;
+}
+
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.order_container {
+  padding: 1rem 0 0rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+//BUTTONS
+.button_icon {
+  height: 15px;
+  width: auto;
+}
+.view_cart .button_icon,
+.checkout .button_icon,
+.pay .button_icon,
+.home .button_icon,
+.log_in_done .button_icon {
+  height: 20px;
+  transform: translateY(-2px) translateX(5px);
+}
+
+.add_icon,
+.remove_icon {
+  height: auto;
+  width: 15px;
+}
+.view_cart,
+.reset,
+.edit,
+.checkout,
+.pay,
+.log_in_done,
+.home,
+.payment {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.2rem;
+}
+
+.primary.add {
+  border-radius: var(--round-left);
+}
+
+.primary.remove {
+  border-radius: var(--round-right);
+}
+.primary.remove,
+.primary.add {
+  width: 3.5rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 7px -3px var(--dark);
+}
+.button_wrap {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+  justify-content: flex-end;
+}
+
+//SUMMARY
+.summary {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  padding: 0 1rem;
+}
+
+.summary_container {
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  * {
+    line-height: 1.5rem;
+  }
+}
+
+.beer_category,
+.price_container {
+  padding: 0rem 0;
+}
+
+.orderBody .name {
+  padding-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+.arrow_down {
+  height: 25px;
+  cursor: pointer;
+}
+.down {
+  cursor: pointer;
+
+  .name {
+    padding-top: 0.8rem;
+  }
+}
+
+//DETAILS
+details {
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--rounded);
+  margin-bottom: 1rem;
+}
+
+//ORDER BUTTONS
+.order_nav_wrapper,
+.result_nav,
+.credit_card_nav,
+.thank_you_nav {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 0.5rem;
+  justify-items: flex-end;
+  padding: 0 0 1.5rem;
+}
+
+//DETAILS
+.secondary.more {
+  width: 7rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button_container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product_details {
+  padding: 0 1rem 1rem 1rem;
+  display: grid;
+  justify-items: center;
+}
+
+.orderBody .txt > h3:nth-child(3) {
+  margin-top: 1rem;
+}
+.label {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+  z-index: 0;
+}
+
+.order_container .label {
+  padding: 0 2rem;
+}
+.more_body .label {
+  padding: 0;
+}
+.amount_chosen,
+.times {
+  letter-spacing: 15px;
+}
+
+details[open] summary ~ * {
+  animation: swoop_down 0.4s ease-in-out;
+}
+
+@keyframes swoop_down {
+  0% {
+    opacity: 0;
+    margin-top: -100px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+summary {
+  z-index: 2;
+}
+.opacity {
+  animation: opacity_kf 1s ease-in-out 1 forwards;
+}
+@keyframes opacity_kf {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -200px;
+  }
+}
+
+details[open] .arrow_down {
+  transition: 1s;
+  transform: rotate3d(0, 0, 1, 180deg) translateX(0px) translateY(-11px);
+  padding: 0.2rem 0rem 0.5rem;
+}
+
+details:not([open]) .arrow_down {
+  transition: 1s;
+
+  transform: rotate3d(0, 1, 5, 0deg) translateX(0px) translateY(17px);
+  padding: 0.2rem 0rem 0.5rem;
+}
+button.pay {
+  padding: 0 2rem;
+}
+
+.orderBody .txt {
+  padding-right: 1rem;
+}
+@media (min-width: 500px) {
+  .first_part_grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  .price {
+    padding: 0rem 1rem 0 0;
+  }
+  button.pay {
+    padding: 0 1rem;
+  }
+  .order_nav_wrapper,
+  .result_nav,
+  .credit_card_nav,
+  .thank_you_nav {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 0.5rem;
+    justify-items: flex-end;
+    padding: 0 0 1.5rem;
+  }
+
+  .summary_container {
+    padding: 0rem 0 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .summary_container {
+    display: grid;
+    grid-template-columns: 40vw 1fr;
+    grid-template-rows: 1fr 2.5rem;
+    grid-template-areas:
+      "titel price"
+      "cat cat";
+  }
+  .order_container .label {
+    padding: 0 2rem 0 0;
+  }
+  .beer_category {
+    grid-area: cat;
+    padding-top: 0.5rem;
+  }
+  .price_container {
+    grid-area: price;
+  }
+  .name {
+    grid-area: title;
+  }
+  .price_container {
+    display: flex;
+    align-items: flex-end;
+  }
+  .button_wrap {
+    align-items: center;
+    padding-bottom: 0;
+  }
+
+  .view_cart,
+  .reset,
+  .edit,
+  .checkout,
+  .pay,
+  .log_in_done,
+  .home {
+    justify-content: flex-end;
+  }
+  .view_cart .button_icon,
+  .reset .button_icon,
+  .edit .button_icon,
+  .checkout .button_icon,
+  .log_in_done .button_icon,
+  .home .button_icon {
+    padding-right: 1rem;
+  }
+
+  .pay .button_icon {
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
+
+  .log_in_done .button_icon {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+  .reset .button_icon,
+  .edit .button_icon,
+  .home .button_icon {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .first_part_grid {
+    grid-template-columns: 40vw 2fr;
+  }
+  .order_container .label {
+    padding: 0 4rem 0 0;
+  }
+}
+@media (min-width: 800px) {
+  .view_cart .button_icon,
+  .reset .button_icon,
+  .edit .button_icon,
+  .checkout .button_icon,
+  .log_in_done .button_icon,
+  .home .button_icon {
+    padding-left: 2.5rem;
+  }
+  .reset .button_icon,
+  .edit .button_icon,
+  .home .button_icon {
+    padding-left: 4rem;
+  }
+  .pay .button_icon,
+  .log_in_done .button_icon {
+    padding-left: 4rem;
+  }
+  .order_container {
+    padding: 2rem 0 1rem;
+  }
+}
+@media (min-width: 1000px) {
+  .product_details {
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .button_container {
+    height: 100%;
+    align-items: flex-end;
+  }
+  .price {
+    padding-right: 1rem;
+  }
+  .summary_container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "titel cat price";
+    align-items: center;
+    padding: 0;
+    .beer_category,
+    .price_container {
+      padding: 0;
+    }
+    .beer_category {
+      text-align: left;
+    }
+    .price_container {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .go_up {
+      transition: 1s;
+      transform: rotate3d(0, 1, 5, 90deg);
+      padding: 0rem 1.2rem;
+    }
+
+    .go_down {
+      transition: 1s;
+      transform: rotate3d(0, 0, 1, 270deg);
+      padding: 0rem 1.5rem;
+    }
+  }
+  details[open] .arrow_down {
+    transition: 1s;
+    transform: rotate3d(0, 0, 1, 180deg) translateX(0px) translateY(2px);
+  }
+
+  details:not([open]) .arrow_down {
+    transition: 1s;
+
+    transform: rotate3d(0, 1, 5, 0deg) translateX(0px) translateY(4px);
+  }
+
+  .order_container .label {
+    padding: 0 3.6rem;
+    max-width: 500px;
+  }
+
+  .summary {
+    grid-template-columns: 4fr 1fr;
+  }
+  .down {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .products .name {
+    padding-left: 1rem;
+    padding-top: 0.2rem;
+  }
+
+  .button_wrap {
+    padding: 1rem 0;
+  }
+  .primary.remove,
+  .primary.add {
+    width: 4rem;
+    height: 2.5rem;
+  }
+  .first_part_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .orderBody .txt {
+    padding-right: 0rem;
+  }
+}
+@media (min-width: 1200px) {
+  .summary_container {
+    grid-template-columns: 26.2vw 1fr 1fr;
+  }
+  .first_part_grid {
+    grid-template-columns: 26.2vw 1fr;
+  }
+  .product_details {
+    grid-template-columns: 3fr 1.5fr;
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Buy beer online at Foobar" />
+    <meta name="keywords" content="beer, brewing, bar, drink, foobar, competition, win a beer, student friendly prices, cheap" />
+    <meta name="author" content="Lisa Søndergaard | Kea - mmd 3. semester" />
+    <link rel="stylesheet" href="sass/style.scss" />
+    <title>FooBar - Home</title>
+  </head>
+  <body class="indexBody">
+    <nav class="desk_nav smooth_out">
+      <div class="max_height">
+        <div class="menu_item arrow_container"><img src="/static/images/svg_icons/yellow_arrow_right.svg" alt="Toggle menu" class="arrow" /></div>
+
+        <div class="menu_item menu-home itm">
+          <h2 class="head2">FOOBAR</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/home.svg" alt="home" class="icon home_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-buy itm">
+          <h2 class="head2">BUY</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/cart_new.svg" alt="Buy beer" class="icon buy_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-beer itm">
+          <h2 class="head2">BEER</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/beer_icon.svg" alt="Browse beer" class="icon beer_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-win itm">
+          <h2 class="head2">WIN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/rosette.svg" alt="Win" class="icon win_ico" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-login itm">
+          <h2 class="head2">LOG IN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/lock_icon_light.svg" alt="Log in" class="log_in_icon" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="home_container grid">
+      <article class="queue">
+        <div class="infobox">
+          <div class="wrap">
+            <p class="head5">UPDATED</p>
+            <p class="title time"></p>
+          </div>
+          <div class="wrap">
+            <p class="head5">PEOPLE IN LINE</p>
+            <p class="title queue_num"></p>
+          </div>
+          <div class="wrap">
+            <p class="head5">SERVED TODAY</p>
+            <p class="title served_today"></p>
+          </div>
+          <div class="wrap">
+            <p class="head5">WINNERS TODAY</p>
+            <p class="title wins_today"></p>
+          </div>
+        </div>
+        <article class="queue_box">
+          <div class="wrap">
+            <div class="q_bar"></div>
+            <p class="q_num head4"></p>
+          </div>
+          <img src="/static/images/logos/appLogo.svg" alt="FooBar logo" class="logo logo_index" />
+        </article>
+      </article>
+
+      <section class="grid icons">
+        <a href="/order.html" title="Buy beer">
+          <article class="big_icon buy">
+            <h3 class="head4">BUY BEER</h3>
+          </article>
+        </a>
+        <a href="/beer.html" title="Read about our beers">
+          <article class="big_icon beer">
+            <h3 class="head4">BROWSE BEER</h3>
+          </article>
+        </a>
+
+        <div class="big_icon win">
+          <article class="progres_circle grid_item2">
+            <p class="win_txt head4"><span class="beernumber">50</span> orders left until new winner!</p>
+            <div class="box_icon">
+              <div class="percent title">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 150 150">
+                  <circle cy="70" cx="70" r="70"></circle>
+                  <circle cy="70" cx="70" r="70"></circle>
+                </svg>
+                <div class="number">
+                  <p class="num win_percent"><span class="percentage win_number">50</span>%</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <a href="/login.html" title="Login to your account, and find your receipts">
+          <article class="big_icon log_in">
+            <h3 class="head4">LOG IN</h3>
+          </article>
+        </a>
+      </section>
+      <section class="dashBody">
+        <article class="time_container">
+          <div class="infobox">
+            <h2 class="dash_title">LINE ESTIMATE</h2>
+          </div>
+          <article class="progres_circle">
+            <div class="box time_wrapper">
+              <div class="percent">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 150 150" class="progress">
+                  <circle cy="70" cx="70" r="70"></circle>
+                  <circle cy="70" cx="70" r="35" stroke="url(#grad1)" stroke-width="70"></circle>
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="00%" style="stop-color: rgba(145, 117, 188, 1); stop-opacity: 1;" />
+                      <stop offset="100%" style="stop-color: rgba(231, 203, 121, 1); stop-opacity: 1;" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="number">
+                  <p class="minutes">30</p>
+                  <p class="dash_subtitle">MIN</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </article>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

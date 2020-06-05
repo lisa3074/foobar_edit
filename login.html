@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Buy beer online at Foobar" />
+    <meta name="keywords" content="beer, brewing, bar, drink, foobar, competition, win a beer, student friendly prices, cheap" />
+    <meta name="author" content="Lisa Søndergaard | Kea - mmd 3. semester" />
+    <title>Log in and follow your order || Foobar</title>
+    <link rel="stylesheet" href="sass/style.scss" />
+  </head>
+  <body class="loginBody">
+    <nav class="desk_nav smooth_out">
+      <div class="max_height">
+        <div class="menu_item arrow_container"><img src="/static/images/svg_icons/yellow_arrow_right.svg" alt="Toggle menu" class="arrow" /></div>
+
+        <div class="menu_item menu-home itm">
+          <h2 class="head2">FOOBAR</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/home.svg" alt="home" class="icon home_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-buy itm">
+          <h2 class="head2">BUY</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/cart_new.svg" alt="Buy beer" class="icon buy_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-beer itm">
+          <h2 class="head2">BEER</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/beer_icon.svg" alt="Browse beer" class="icon beer_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-win itm">
+          <h2 class="head2">WIN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/rosette.svg" alt="Win" class="icon win_ico" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-login itm">
+          <h2 class="head2">LOG IN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/lock_icon_light.svg" alt="Log in" class="log_in_icon" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="main_content">
+      <h1 class="title login_heading">LOG IN</h1>
+      <section class="log_in_container">
+        <article class="grid_item1">
+          <form class="login_form">
+            <fieldset class="log_in_site">
+              <div>
+                <label for="username_login" class="labels">USERNAME</label>
+                <input type="text" id="username_login" placeholder="JOHN SMITH" name="login" minlength="5" required />
+                <p class="invalid_text star">*</p>
+              </div>
+              <div>
+                <label for="password_login" class="labels">PASSWORD</label>
+                <input type="password" id="password_login" placeholder="••••••••" name="login" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required />
+                <p class="invalid_text star">*</p>
+              </div>
+              <p class="invalid_user invalid_text hide">The username does not mach an existing login</p>
+              <p class="invalid_password invalid_text hide">The password does not match this login</p>
+            </fieldset>
+          </form>
+        </article>
+        <article class="grid_item2 lock"></article>
+        <article class="grid_item3">
+          <button id="forgot" class="forgot head2 secondary">FORGOT<img src="/static/images/svg_icons/white_cancel.svg" alt="Forgot password" class="button_icon" /></button>
+          <button id="login" class="log_into_account log_in_done head2 primary">LOG IN<img src="/static/images/svg_icons/lock_icon_dark.svg" alt="Log in" class="button_icon" /></button>
+        </article>
+      </section>
+      <section class="account_container hide">
+        <article class="grid_item1">
+          <div>
+            <h2 class="title">ORDER STATUS</h2>
+            <p class="head2 status_write"></p>
+            <p class="head2 bartender_write"></p>
+          </div>
+          <form class="check_status">
+            <label for="ordernum" class="labels">TYPE IN YOUR ORDER NUMBER</label>
+            <div>
+              <input type="number" class="digits" id="ordernum" name="number" placeholder="0" required="" />
+              <button class="check primary head2">CHECK</button>
+            </div>
+          </form>
+        </article>
+        <article class="grid_item2">
+          <h4 class="head4">RECEIPTS</h4>
+        </article>
+        <article class="grid_item3">
+          <h4 class="head4">LOG OUT</h4>
+        </article>
+      </section>
+      <section class="receipts_wrapper hide">
+        <h1 class="title receipt_heading">YOUR RECEIPTS</h1>
+        <img src="/static/images/svg_icons/dark_cancel.svg" alt="close" class="close_receipts close" />
+
+        <article class="receipts_container">
+          <!-- APPEND RECEIPTS HERE -->
+        </article>
+      </section>
+    </main>
+
+    <!-- RECEIPT TEMPLATE -->
+    <template class="receipt_temp">
+      <article class="wrapper" data-id="">
+        <details class="receipt">
+          <summary>
+            <div class="summary">
+              <div class="down">
+                <img src="/static/images/svg_icons/yellow_arrow_right.svg" alt="Read more" class="arrow_down go_up" />
+                <h1 class="head2 name"></h1>
+              </div>
+              <p class="head2 order">ORDER NR.<span class="order_number head3"></span></p>
+              <p class="head2 price_container"><span class="price"></span> DKK</p>
+            </div>
+          </summary>
+          <div class="details">
+            <!-- APPEND DETAIL-LIST HERE -->
+          </div>
+          <div class="grid total">
+            <h3 class="head2">TOTAL</h3>
+            <p class="labels"><span class="total_amount"></span> DKK</p>
+          </div>
+          <div class="button_container">
+            <button class="delete head2 secondary">DELETE</button>
+          </div>
+        </details>
+      </article>
+    </template>
+
+    <!-- DETAILS_LIST TEMPLATE -->
+    <template class="details_temp">
+      <div class="receipt_details">
+        <div class="buy_items grid">
+          <h3 class="head2 article"></h3>
+          <p class="paragraph amount"></p>
+          <p class="labels final_amount"></p>
+        </div>
+      </div>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

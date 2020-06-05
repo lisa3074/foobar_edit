@@ -1,0 +1,309 @@
+.winner {
+  padding: 1rem 1rem 5.5rem;
+  .win_title {
+    font: var(--win-title);
+    color: var(--white);
+  }
+  .win_number {
+    font: var(--win-number);
+    color: var(--dark);
+  }
+  .win_percent {
+    font: var(--win-percent);
+    color: var(--dark);
+  }
+  .win_subhead {
+    font: var(--win-subhead);
+  }
+  .paragraph {
+    font: var(--paragraph);
+    color: var(--white);
+  }
+  .win_smallnumbers {
+    font: var(--win-smallnumbers);
+    color: var(--dark);
+  }
+
+  .progres_circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    position: relative;
+    width: 70vw;
+    height: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  .box .percent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .box .percent svg {
+    position: relative;
+  }
+  .box .percent svg circle {
+    fill: none;
+    stroke-width: 10;
+    stroke: var(--soft-blue);
+    transform: translate(5px, 5px);
+    stroke-dashoffset: 440;
+    stroke-dasharray: 440;
+    stroke-linecap: round;
+    transform: translate(5px, 145px) rotate(-90deg);
+  }
+  .box .percent svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+    stroke: var(--soft-blue);
+  }
+  .box .percent svg circle:nth-child(2) {
+    transition: 1s;
+    stroke-dashoffset: calc(440px - (440px * var(--progress)) / 100);
+    stroke: var(--yellow);
+  }
+  .box .percent .number {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark);
+  }
+
+  .box .text {
+    padding: 1rem;
+  }
+
+  .number .head1 {
+    text-align: center;
+  }
+
+  .win_wrapper {
+    background: var(--purple);
+    background: var(--gradient);
+    border-radius: var(--rounded);
+    padding: 1rem;
+  }
+
+  .grid_item1 {
+    padding: 1rem;
+    .win_subhead {
+      color: var(--white);
+      padding: 1rem 0;
+    }
+  }
+  .grid_item2 {
+    padding-top: 2rem;
+  }
+  .grid_item3 .win_subhead {
+    color: var(--dark);
+  }
+
+  .win_title {
+    padding-bottom: 1rem;
+  }
+  .paragraph {
+    padding-bottom: 1rem;
+  }
+
+  .grid_item3 {
+    .wrap:nth-child(1) {
+      grid-area: grid1;
+    }
+    .wrap:nth-child(2) {
+      grid-area: grid2;
+    }
+    .wrap:nth-child(3) {
+      grid-area: grid3;
+    }
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 8rem auto;
+    grid-row-gap: 2rem;
+    grid-template-areas:
+      "grid1 grid2"
+      "grid3 grid3";
+    .wrap {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
+      .win_subhead,
+      .win_smallnumbers {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .box {
+    width: 35vh;
+    height: 40vh;
+  }
+}
+@media (min-width: 350px) {
+  .winner {
+    .grid_item3 {
+      padding: 0 2rem;
+      grid-template-rows: 7rem auto;
+    }
+  }
+}
+
+@media (min-width: 650px) {
+  .winner {
+    .grid_item1 {
+      max-width: 50ch;
+      padding-right: 2rem;
+      justify-self: flex-start;
+    }
+    .box {
+      width: 50vw;
+      height: 50vw;
+    }
+    .grid_item3 {
+      padding-top: 4rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      grid-column-gap: 2rem;
+      grid-template-areas: "grid1 grid2 grid3";
+      align-items: flex-end;
+      .wrap {
+        max-width: 10rem;
+        justify-content: center;
+        margin: 0 auto;
+      }
+    }
+    .win_wrapper {
+      height: calc(100vh - 6rem);
+    }
+  }
+}
+@media (min-width: 800px) {
+  .winner {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 2rem 2rem 100px;
+    .grid_item1 {
+      grid-area: text;
+    }
+    .grid_item2 {
+      grid-area: progress;
+      padding-top: 4rem;
+    }
+    .grid_item3 {
+      grid-area: facts;
+      padding: 2rem;
+    }
+    .win_wrapper {
+      justify-items: center;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: 50vh 30vh;
+      grid-template-areas:
+        "text progress"
+        "facts facts";
+    }
+    .box {
+      width: 40vh;
+      height: 40vh;
+    }
+    .win_wrapper {
+      padding: 3rem;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .winner {
+    .box {
+      width: 50vh;
+      height: 50vh;
+    }
+  }
+}
+@media (min-width: 1000px) {
+  .win_wrapper {
+    grid-template-rows: 60vh 20vh;
+  }
+}
+@media (min-width: 1100px) {
+  .winner {
+    .grid_item3 {
+      .wrap {
+        max-width: 15vw;
+      }
+    }
+    .win_text {
+      font-size: 1.5vw;
+      padding-right: 2rem;
+    }
+    .win_title {
+      font-size: 2.5vw;
+    }
+    .win_subhead {
+      font-size: 2.2vw;
+    }
+    .win_smallnumbers {
+      font-size: 4vw;
+    }
+    .grid_item1 {
+      max-width: 100%;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .winner {
+    .box {
+      width: 55vh;
+      height: 55vh;
+    }
+    .grid_item2 {
+      padding-top: 4rem;
+    }
+  }
+}
+@media (min-width: 1500px) {
+  .winner {
+    .box {
+      width: 60vh;
+      height: 60vh;
+      padding-top: 4rem;
+    }
+  }
+}
+@media (max-aspect-ratio: 4/4) {
+  .winner {
+    .win_wrapper {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 15rem auto auto;
+      grid-template-areas:
+        "text"
+        "progress"
+        "facts";
+    }
+
+    .grid_item1 {
+      padding-bottom: 0;
+    }
+  }
+}

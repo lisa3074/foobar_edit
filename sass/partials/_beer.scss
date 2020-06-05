@@ -1,0 +1,188 @@
+.beerBody .summary {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2rem;
+  grid-column-gap: 1rem;
+  grid-template-areas:
+    "down down"
+    "cat alc";
+}
+.beerBody summary {
+  display: block;
+  padding: 0;
+}
+.beer_container {
+  .down {
+    grid-area: down;
+    padding-bottom: 0.5rem;
+    .name {
+      padding-top: 0.8rem;
+    }
+  }
+  .category {
+    grid-area: cat;
+    display: flex;
+    flex-wrap: nowrap;
+    .head2 {
+      padding-right: 0.5rem;
+      display: none;
+    }
+  }
+  .alcohol {
+    grid-area: alc;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-self: flex-end;
+    .head2 {
+      padding-right: 0.5rem;
+    }
+  }
+
+  details {
+    padding: 0rem 1rem 0.75rem;
+  }
+  .more_body {
+    background-color: var(--white);
+    color: var(--dark);
+    border-radius: var(--round-high);
+
+    padding: 2rem 0 0.2rem;
+    display: block;
+    .label {
+      margin: 0 0 2rem;
+    }
+  }
+}
+
+.beer_heading {
+  padding: 0rem;
+}
+p.disclamer {
+  padding-bottom: 1rem;
+}
+.beer_wrapper {
+  padding: 1rem 1rem calc(1rem + 70px) 1rem;
+  width: 100%;
+}
+.product_right {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  .buy_beer {
+    align-self: flex-end;
+    width: 12rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .beer_container {
+    .more_body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "txt1 txt2" "pic button";
+      grid-column-gap: 1rem;
+    }
+    .more_body .label {
+      grid-area: pic;
+      margin-bottom: 0.5rem;
+      max-width: 250px;
+    }
+    .product_txt:nth-child(2) {
+      grid-area: txt1;
+    }
+    .product_txt:nth-child(3) {
+      grid-area: txt2;
+    }
+    .buy_beer {
+      width: 8rem;
+    }
+    .product_right {
+      justify-self: flex-end;
+    }
+    .alcohol {
+      justify-self: flex-start;
+    }
+  }
+}
+@media (min-width: 800px) {
+  .beer_container {
+    .more_body {
+      margin-bottom: 0;
+      grid-template-columns: 2.5fr 2fr 1fr;
+      grid-template-rows: 1fr 0.1fr;
+      grid-column-gap: 2rem;
+      grid-template-areas:
+        "txt1 txt2 pic"
+        "txt1 txt2 button";
+    }
+
+    .more_body .label {
+      grid-area: pic;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    .down .name {
+      padding: 0.4rem 0 0 2.5rem;
+    }
+
+    details {
+      padding-top: 1rem;
+    }
+
+    .product_txt:nth-child(2) {
+      grid-area: txt1;
+      padding-left: 4rem;
+    }
+    .product_txt:nth-child(3) {
+      grid-area: txt2;
+    }
+    .buy_beer {
+      width: 8rem;
+    }
+    .product_right {
+      justify-self: flex-end;
+    }
+    .category .head2 {
+      display: block;
+    }
+  }
+
+  .beer_wrapper {
+    padding: 1rem 1rem 3rem calc(1rem + 80px);
+  }
+  .beerBody .summary {
+    padding: 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2.5fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 2rem;
+    grid-template-areas: "down cat alc";
+    .down {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .beerBody {
+    details[open] .arrow_down {
+      transition: 1s;
+      transform: rotate3d(0, 0, 1, 180deg) translateX(-13px) translateY(0px);
+    }
+
+    details:not([open]) .arrow_down {
+      transition: 1s;
+
+      transform: rotate3d(0, 1, 5, 0deg) translateX(13px) translateY(7px);
+    }
+  }
+}
+@media (min-width: 1000px) {
+  .beer_container {
+    .more_body,
+    .summary {
+      grid-template-columns: 2.5fr 2fr 1.5fr;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.dashBody {
+  .time_container {
+    .progres_circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    svg {
+      width: 90%;
+      height: 90%;
+      padding-bottom: 0;
+      padding-top: 10%;
+      padding-left: 10%;
+    }
+    .box .percent {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      margin: 0 auto;
+      top: -1rem;
+    }
+    .box .percent svg {
+      position: relative;
+    }
+    .box .percent svg circle {
+      fill: var(--soft-blue);
+      stroke-width: 0;
+      transform: translate(5px, 5px);
+      stroke-dashoffset: 440;
+      stroke-dasharray: 440;
+      transform: translate(5px, 145px) rotate(-90deg);
+    }
+    .box .percent svg circle:nth-child(1) {
+      stroke-dashoffset: 0;
+    }
+    .box .percent svg circle:nth-child(2) {
+      fill: none;
+      transition: 1s;
+      stroke-dashoffset: calc(440px - (440px * var(--time-estimate)) / 120);
+      stroke-width: 70;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .box .percent .number {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--dark);
+    }
+    .number .minutes {
+      height: 3rem;
+      font: var(--win-smallnumbers);
+    }
+
+    .box .text {
+      padding: 1rem;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.order_num h2 {
+  padding: 2rem 0 0.5rem;
+}
+.thank_you p {
+  padding-bottom: 1rem;
+}
+
+.thank_you {
+  padding: 0 1rem;
+  .head1 {
+    padding: 1rem 0 1rem 0;
+  }
+}
+.number_bg {
+  width: 5rem;
+  height: 3rem;
+  background-color: var(--yellow);
+  border-radius: var(--rounded);
+  display: flex;
+  justify-content: center;
+  p {
+    padding-top: 0.5rem;
+  }
+}
+
+.thank_you .order_num {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  .head2 {
+    padding: 0 1rem 0 0;
+  }
+}

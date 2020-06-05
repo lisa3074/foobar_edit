@@ -1,0 +1,210 @@
+.dash_title {
+  font: var(--win-title);
+}
+.dash_subtitle {
+  font: var(--head4);
+}
+.dash_winner {
+  font: var(--head1);
+}
+
+.dash_queue_numbers {
+  font: var(--title);
+}
+
+:root {
+  --progress: 30;
+}
+
+.logo_line {
+  display: none;
+}
+.dashBody {
+  --win-title: 1.7rem "proxima_novabold", sans-serif;
+  --dash-big-numbers: 2.3rem "proxima_novabold", sans-serif;
+  --title: 1.2rem "proxima_novabold", sans-serif;
+  --head2: 0.75rem "proxima_novabold", sans-serif;
+}
+
+.dash_container {
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  padding-bottom: 1rem;
+
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  grid-template-areas:
+    "queue"
+    "win"
+    "time"
+    "line"
+    "pickup";
+}
+
+.dashBody {
+  background-color: var(--soft-pink);
+  padding: 1rem;
+  color: var(--dark);
+  width: 100%;
+  height: 97vh;
+  h2.dash_title {
+    text-align: center;
+  }
+
+  .queue_big {
+    grid-area: queue;
+  }
+  .winner_big {
+    grid-area: win;
+    height: 100%;
+  }
+  .time_container {
+    grid-area: time;
+  }
+  .line {
+    grid-area: line;
+  }
+  .pickup {
+    grid-area: pickup;
+  }
+  .queue_big,
+  .winner_big,
+  .time_container,
+  .line,
+  .pickup {
+    background-color: var(--white);
+    border-radius: var(--rounded);
+    box-shadow: var(--box-shadow);
+    height: 100%;
+    width: 100%;
+  }
+
+  .time_container,
+  .line,
+  .pickup,
+  .win_big,
+  .queue_right {
+    padding: 1rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  .infobox {
+    height: 100%;
+    padding: 2rem 1rem 1rem 1rem;
+
+    .wrap {
+      flex-basis: 1000px;
+      text-align: left;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+@media (min-width: 550px) {
+  .dashBody {
+    .infobox {
+      height: 100%;
+      padding: 2rem 1rem 1rem 2rem;
+    }
+  }
+}
+@media (min-width: 800px) {
+  .dashBody {
+    --win-title: 1.7rem "proxima_novabold", sans-serif;
+    --dash-big-numbers: 4rem "proxima_novabold", sans-serif;
+    --title: 1.7rem "proxima_novabold", sans-serif;
+    --head2: 0.95rem "proxima_novabold", sans-serif;
+    .dash_subtitle {
+      font: var(--head2);
+    }
+  }
+}
+@media (min-width: 800px) and (orientation: portrait) {
+  @media (max-aspect-ratio: 3/4) {
+    .dash_container {
+      display: grid;
+      max-width: 100%;
+      max-height: 100%;
+      grid-template-rows: 30% 35% 35%;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 1rem;
+      padding-bottom: 0rem;
+      grid-template-areas:
+        "queue queue queue time time time"
+        "win win win win win win"
+        "line line line pickup pickup pickup";
+    }
+    .dash_big_numbers {
+      font: var(--dash-big-numbers);
+    }
+  }
+}
+@media (min-width: 800px) and (orientation: landscape) {
+  .dash_container {
+    display: grid;
+    max-width: 100%;
+    max-height: 100%;
+    grid-template-rows: 50% 50%;
+    padding-bottom: 0rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas:
+      "queue queue queue win win win"
+      "time time line line pickup pickup";
+  }
+  .queue_big {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1100px) {
+  .dash_container {
+    display: grid;
+    max-width: 100%;
+    max-height: 100%;
+    grid-template-rows: 50% 50%;
+    padding-bottom: 0rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas:
+      "line line line win win win"
+      "time time queue queue pickup pickup";
+  }
+  .logo_queue {
+    display: none;
+  }
+
+  .logo_line {
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .dashBody .dash_subtitle {
+    font-size: 1.1rem;
+  }
+  .dashBody .wrap p:nth-child(2) {
+    font-size: 2rem;
+  }
+  .dashBody .wrap p:nth-child(2).in_queue {
+    font-size: 1.2rem;
+  }
+
+  .dash_big_numbers {
+    font: var(--dash-big-numbers);
+  }
+}
+@media (min-width: 1900px) {
+  .dashBody .dash_subtitle {
+    font-size: 1.4rem;
+  }
+  .dashBody .wrap p:nth-child(2) {
+    font-size: 2.5rem;
+  }
+}

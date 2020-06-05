@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Buy beer online at Foobar" />
+    <meta name="keywords" content="beer, brewing, bar, drink, foobar, competition, win a beer, student friendly prices, cheap" />
+    <meta name="author" content="Lisa Søndergaard | Kea - mmd 3. semester" />
+    <title>Order your beer || Foobar</title>
+    <link rel="stylesheet" href="sass/style.scss" />
+  </head>
+  <body class="orderBody">
+    <nav class="desk_nav smooth_out">
+      <div class="max_height">
+        <div class="menu_item arrow_container"><img src="/static/images/svg_icons/yellow_arrow_right.svg" alt="Toggle menu" class="arrow" /></div>
+
+        <div class="menu_item menu-home itm">
+          <h2 class="head2">FOOBAR</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/home.svg" alt="home" class="icon home_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-buy itm">
+          <h2 class="head2">BUY</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/cart_new.svg" alt="Buy beer" class="icon buy_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-beer itm">
+          <h2 class="head2">BEER</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/beer_icon.svg" alt="Browse beer" class="icon beer_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-win itm">
+          <h2 class="head2">WIN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/rosette.svg" alt="Win" class="icon win_ico" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-login itm">
+          <h2 class="head2">LOG IN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/lock_icon_light.svg" alt="Log in" class="log_in_icon" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <template class="products_sold">
+      <article class="disabled wrapper">
+        <details class="products">
+          <summary>
+            <div class="summary">
+              <div class="summary_container">
+                <div class="down">
+                  <img src="/static/images/svg_icons/yellow_arrow.svg" alt="Read more" class="arrow_down go_up" />
+                  <h1 class="head12 name">EL HEFE</h1>
+                </div>
+                <p class="beer_category head3">Ale</p>
+                <p class="head2 price_container"><span class="price">30 DKK </span><span class="times hide"> x</span><span class="amount_chosen"> </span></p>
+              </div>
+              <div class="button_wrap">
+                <button class="remove primary" onclick="return false"><img src="/static/images/svg_icons/remove.svg" alt="Remove one" class="remove_icon" /></button>
+                <button class="add primary" onclick="return false"><img src="/static/images/svg_icons/add.svg" alt="Add one" class="add_icon" /></button>
+              </div>
+            </div>
+          </summary>
+          <div class="product_details">
+            <div class="first_part_grid">
+              <img src="" alt="" class="label" />
+              <div class="txt">
+                <h3 class="head2">AROMA</h3>
+                <p class="paragraph aroma">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, dolore reprehenderit perferendis voluptatibus nulla obcaecati ratione sed neque itaque! Iste ratione reprehenderit repellendus quo, recusandae cumque maiores vel praesentium dignissimos.
+                </p>
+                <h3 class="head2">ALCOHOL</h3>
+                <p class="paragraph alc">70%</p>
+              </div>
+            </div>
+            <div class="button_container">
+              <button class="more head2 secondary">MORE</button>
+            </div>
+          </div>
+        </details>
+      </article>
+    </template>
+
+    <main class="order_wrapper">
+      <h1 class="title order_heading">CHOOSE YOUR POISON</h1>
+      <p class="paragraph">The beers you see are the beers we have on tap right now. All beers are 0.5L</p>
+      <section class="order_container">
+        <!-- APPEND LIST -->
+      </section>
+
+      <section class="order_nav_wrapper">
+        <button class="reset head2 secondary">RESET <img src="/static/images/svg_icons/white_cancel.svg" alt="Reset" class="button_icon" /></button>
+        <button class="view_cart head2 primary">VIEW CART <img src="/static/images/svg_icons/dark_cart.svg" alt="View cart" class="button_icon" /></button>
+      </section>
+
+      <!-- POPUPS -->
+      <!-- READ MORE -->
+
+      <section class="more_container hide hidden_left">
+        <img src="/static/images/svg_icons/dark_cancel.svg" alt="close" class="close_more close" />
+        <div class="more_wrapper">
+          <div class="more_header">
+            <h1 class="head1 name">FAIRY TALE ALE</h1>
+            <div class="category">
+              <h3 class="head2">CATEGORY</h3>
+              <p class="head3 cat"></p>
+            </div>
+            <div class="alcohol">
+              <h3 class="head2">ALCOHOL</h3>
+              <p class="head3 alc"></p>
+            </div>
+          </div>
+          <div class="more_body">
+            <div class="txt1">
+              <h4 class="head2">AROMA</h4>
+              <p class="paragraph aroma"></p>
+              <h4 class="head2">APPEARANCE</h4>
+              <p class="paragraph appearance"></p>
+              <h4 class="head2">MOUTHFEEL</h4>
+              <p class="paragraph mouth_feel"></p>
+            </div>
+            <div class="txt2">
+              <h4 class="head2">FLAVOUR</h4>
+              <p class="paragraph flavor"></p>
+              <h4 class="head2">OVERALL</h4>
+              <p class="paragraph overall"></p>
+            </div>
+            <img src="" alt="Fairy tale ale" class="label" />
+          </div>
+        </div>
+      </section>
+      <section class="cart fadeOut hide">
+        <img src="/static/images/svg_icons/dark_cancel.svg" alt="cancel" class="close cart_close" />
+        <h1 class="title cart_heading">CART</h1>
+        <div class="cart_container grid">
+          <article class="grid_item1">
+            <!-- RESULT STARTS -->
+            <article class="result">
+              <template class="cart_sumup">
+                <div class="buy_items grid">
+                  <h3 class="head2 article">MOWINTIME</h3>
+                  <p class="paragraph amount">4 stk.</p>
+                  <p class="labels final_amount">180 DKK</p>
+                </div>
+              </template>
+              <p class="paragraph zero_beer"></p>
+              <div class="result_list">
+                <!-- APPEND LIST/ITEMS -->
+                <!-- APPEND LIST/ITEMS ENDS -->
+              </div>
+              <div class="grid total">
+                <h3 class="head2">TOTAL</h3>
+                <p class="labels"><span class="total_amount">270</span> DKK</p>
+              </div>
+            </article>
+            <!-- RESULT ENDS -->
+            <!-- CREDIT CARD STARTS -->
+            <section id="card" class="card hide">
+              <form class="credit_card">
+                <article class="credit_container">
+                  <article class="card_ani"></article>
+                  <fieldset class="card_wrapper">
+                    <div>
+                      <label for="number" class="labels">CREDIT CARD NUMBER</label>
+                      <input type="text" id="number" maxlength="19" minlength="19" placeholder="1234 5678 9012 3456" pattern=".{19,19}" name="card" required />
+                      <p class="invalid_text star hide">*</p>
+                    </div>
+                    <div class="small_inputs">
+                      <div class="expire">
+                        <div>
+                          <label for="month" class="labels">MONTH</label>
+                          <input type="number" max="12" min="01" id="month" placeholder="XX" name="card" required />
+                          <p class="invalid_text star hide">*</p>
+                        </div>
+                        <div>
+                          <label for="year" class="labels">YEAR</label>
+                          <input type="text" maxlength="2" minlength="2" id="year" placeholder="XX" name="card" pattern="^[0-9]{2}$" required />
+                          <p class="invalid_text star hide">*</p>
+                        </div>
+                      </div>
+                      <div>
+                        <label for="secure" class="labels">CVC</label>
+                        <input type="text" maxlength="3" minlength="3" id="secure" placeholder="XXX" name="card" pattern=".{3,3}" required />
+                        <p class="invalid_text star hide">*</p>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="full_name" class="labels">NAME ON CARD</label>
+                      <input type="text" id="full_name" placeholder="JOHN SMITH" pattern="(?:[a-z]|[A-Z]).{0,30}\s(?:[a-z]|[A-Z]).{0,30}" name="card" required />
+                      <p class="invalid_text star hide">*</p>
+                    </div>
+                  </fieldset>
+                </article>
+                <div class="credit_invalid">
+                  <p class="invalid_creditcard invalid_text hide">You need to fill out 16 digits for the credit card</p>
+                  <p class="invalid_month invalid_text hide">You need to enter two digits for the month</p>
+                  <p class="invalid_year invalid_text hide">You need to enter two digits for the year and the year has to be bigger than 20</p>
+                  <p class="invalid_cvc invalid_text hide">You need to enter the security code on the back of your card (3 digits).</p>
+                  <p class="invalid_name invalid_text hide">Enter at least a first and a last name</p>
+                </div>
+                <fieldset class="pin">
+                  <h3 class="labels">CREATE AN ACCOUNT OR LOG IN</h3>
+                  <p class="explain">If you don't already have an account, create a new one or proceed without login.</p>
+                  <p class="explain">You’ll be able to see the status of your order under “log in”.</p>
+                  <div class="choice">
+                    <div>
+                      <input type="radio" id="has_account" name="choice" class="radio" checked />
+                      <label for="has_account" class="head4">LOG IN</label>
+                    </div>
+                    <div>
+                      <input type="radio" id="new_account" name="choice" class="radio" />
+                      <label for="new_account" class="head4">CREATE LOG IN</label>
+                    </div>
+                    <div>
+                      <input type="radio" id="no_account" name="choice" class="radio" />
+                      <label for="no_account" class="head4">BUY WITHOUT LOG IN</label>
+                    </div>
+                  </div>
+                  <div class="user">
+                    <div class="username">
+                      <label for="username" class="labels">USERNAME</label>
+                      <input type="text" id="username" placeholder="JOHN SMITH" name="login" minlength="5" required />
+                      <p class="invalid_text star">*</p>
+                    </div>
+                    <div class="password">
+                      <label for="password" class="labels">PASSWORD<span class="explain_pass paragraph">|| 6 chars: 1 CAP & 1 digit</span></label>
+                      <input type="password" id="password" placeholder="••••••••" name="login" pattern="(?=.*\d)(?=.*[A-Z]).{6,}" required />
+                      <p class="invalid_text star">*</p>
+                    </div>
+                    <div class="secure_pass hide">
+                      <label for="secure_pass" class="labels">RE-TYPE PASSWORD</label>
+                      <input type="password" id="secure_pass" placeholder="••••••••" name="login" />
+                      <p class="invalid_text star">*</p>
+                    </div>
+                    <div class="mail hide">
+                      <label for="mail" class="labels">E-MAIL<span class="explain_mail paragraph"> || For your receipt..</span></label>
+                      <input type="email" id="mail" placeholder="TYPE@VALID.LOGIN" name="login" />
+                      <p class="invalid_text star">*</p>
+                    </div>
+                  </div>
+                  <p class="invalid_user invalid_text hide"></p>
+                  <p class="invalid_password invalid_text hide"></p>
+                  <p class="invalid_password2 invalid_text hide">The two passwords does not match</p>
+                  <p class="invalid_mail invalid_text hide">The mail needs to be valid</p>
+                </fieldset>
+              </form>
+              <article class="payment">
+                <h3 class="head2">PAY IN TOTAL</h3>
+                <h4 class="head2"><span class="total_amount_bottom">270</span> DKK</h4>
+              </article>
+            </section>
+            <!-- CREDIT CARD ENDS -->
+            <!-- THANK YOU STARTS -->
+            <section class="thank_you hide">
+              <h2 class="head1">THANK YOU FOR YOUR PURCHASE!</h2>
+              <p class="paragraph">
+                You will have your beer shortly.
+              </p>
+              <p class="paragraph">
+                Keep an eye on the big screen at the bar. When you see your order number under “pick me up” it’s time to go get your beer!
+              </p>
+              <p class="paragraph">You can also log in on this app, to see how far along the pouring of your beer is.</p>
+              <p class="paragraph">To log in you will need the username and password you just used.</p>
+              <div class="order_num">
+                <h2 class="head2">ORDER NUMBER</h2>
+                <div class="number_bg">
+                  <p class="title your_number">...</p>
+                </div>
+              </div>
+            </section>
+            <!-- THANK YOU ENDS -->
+          </article>
+          <article class="grid_item2">
+            <div class="cart_summary">
+              <div class="wrap">
+                <div class="p head5">BEERS ORDERED</div>
+                <p class="title your_number">...</p>
+              </div>
+              <div class="wrap">
+                <div class="p head5">PRICE IN TOTAL</div>
+                <p class="head2"><span class="total_amount_right title"></span>DKK</p>
+              </div>
+            </div>
+          </article>
+          <article class="grid_item3">
+            <div class="result_nav">
+              <button class="edit head2 secondary">RESET<img src="/static/images/svg_icons/white_cancel.svg" alt="Edit" class="button_icon" /></button>
+              <button class="checkout head2 primary">CHECKOUT<img src="/static/images/svg_icons/dark_cart.svg" alt="Checkout" class="button_icon" /></button>
+            </div>
+            <div class="credit_card_nav hide">
+              <button class="edit head2 secondary">RESET<img src="/static/images/svg_icons/white_cancel.svg" alt="Edit" class="button_icon" /></button>
+              <button class="pay head2 primary">PAY<img src="/static/images/svg_icons/dark_cart.svg" alt="Pay" class="button_icon" /></button>
+            </div>
+            <div class="thank_you_nav hide">
+              <button class="home head2 secondary">HOME<img src="/static/images/svg_icons/white_cancel.svg" alt="Home" class="button_icon" /></button>
+              <button class="log_in_done head2 primary">LOG IN<img src="/static/images/svg_icons/lock_icon_dark.svg" alt="Log in" class="button_icon" /></button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="/modules/card.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

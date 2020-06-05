@@ -1,0 +1,435 @@
+.log_in_container {
+  display: grid;
+  width: 100%;
+  max-width: 860px;
+  height: 100%;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.5fr 1.3fr 0.5fr;
+  grid-row-gap: 1rem;
+  padding: 3rem 1rem;
+  grid-template-areas:
+    "pic pic pic pic"
+    "login login login login"
+    "button button button button";
+}
+
+.account_container {
+  display: grid;
+  width: 100%;
+  max-width: 650px;
+  height: calc(100vh - 300px);
+  max-height: 500px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 15fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 1rem 0rem 4rem;
+  grid-template-areas:
+    "status status status status"
+    "status status status status"
+    "status status status status"
+    "reciepts reciepts logout logout"
+    "reciepts reciepts logout logout";
+}
+
+.main_content {
+  padding: 1rem;
+}
+
+.account_container .grid_item1 {
+  grid-area: status;
+  background-color: var(--white);
+  color: var(--dark);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--rounded);
+  background-image: url(/static/images/big_icons/beer_login.png);
+  background-position: 40% 80%;
+  background-size: 130%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  padding: 1rem 2rem;
+  form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    div {
+      display: flex;
+      flex-wrap: nowrap;
+      padding: 0.5rem 2rem 0 0;
+    }
+    button {
+      height: 2.5rem;
+      margin: 0.3rem 0 0 1rem;
+    }
+  }
+  .status_write {
+    color: var(--white);
+    padding: 1rem 1rem 0.2rem 0;
+    text-transform: uppercase;
+  }
+
+  .title {
+    padding-top: 1rem;
+  }
+
+  input {
+    width: 4rem;
+    height: 2.5rem;
+    background-color: var(--soft-purple-light);
+    text-align: center;
+  }
+  .check {
+    padding: 0;
+  }
+}
+
+.log_in_site {
+  .star {
+    position: absolute;
+    font: var(--title);
+  }
+  div:nth-child(1) > .star {
+    transform: translateY(-78px) translateX(80px);
+  }
+  div:nth-child(2) > .star {
+    transform: translateY(-76px) translateX(80px);
+  }
+}
+
+.account_container .grid_item2 {
+  grid-area: reciepts;
+  background-image: url(/static/images/big_icons/creditDone.jpg);
+  background-position: 55% 100%;
+  background-size: cover;
+  cursor: pointer;
+}
+.account_container .grid_item3 {
+  grid-area: logout;
+  background-image: url(/static/images/big_icons/padlock.png);
+  background-position: 54% 50%;
+  background-size: 180%;
+}
+
+.account_container .grid_item3,
+.account_container .grid_item2 {
+  height: 45vw;
+  max-height: 250px;
+  color: var(--dark);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--rounded);
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0.7rem;
+}
+.log_in_container .grid_item1 {
+  grid-area: login;
+  background-color: var(--white);
+  color: var(--dark);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--rounded);
+}
+
+.log_in_container .grid_item2 {
+  grid-area: pic;
+  height: 100%;
+  width: 100%;
+  background-image: url(/static/images/big_icons/padlock.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  box-shadow: var(--box-shadow);
+  border-radius: var(--rounded);
+}
+.log_in_container .grid_item3 {
+  grid-area: button;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#forgot,
+#login {
+  height: 3.2rem;
+}
+
+.login_heading {
+  padding-left: 1rem;
+  padding-top: 0rem;
+}
+
+.login_form {
+  padding: 4rem 2rem;
+}
+
+.receipts_container .summary {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2rem;
+  grid-template-areas:
+    "down down"
+    "order price";
+
+  .down {
+    grid-area: down;
+    padding-bottom: 0.5rem;
+    .name {
+      padding-top: 0.5rem;
+    }
+  }
+  .price_container {
+    grid-area: price;
+    align-self: flex-start;
+    justify-self: flex-end;
+  }
+  .price {
+    padding-right: 0.2rem;
+  }
+  .order_number {
+    padding-left: 0.4rem;
+  }
+  .order {
+    grid-area: order;
+  }
+}
+
+.receipts_container {
+  .details {
+    padding: 1rem 0;
+  }
+  .buy_items {
+    padding: 0.5rem 0;
+  }
+  .receipt {
+    padding: 0.5rem 2rem 0.75rem 2rem;
+    width: 90vw;
+  }
+  .total {
+    padding: 1.5rem 0;
+  }
+  .amount {
+    padding-right: 1rem;
+  }
+  .delete {
+    height: 2.5rem;
+    padding: 0;
+    width: 8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  details[open] .arrow_down {
+    transition: 1s;
+    transform: rotate3d(0, 0, 1, 270deg) translateX(-3px) translateY(-13px);
+    padding: 0rem 1.5rem;
+  }
+
+  details:not([open]) .arrow_down {
+    transition: 1s;
+    transform: rotate3d(0, 1, 5, 90deg) translateX(3px) translateY(13px);
+    padding: 0rem 1.2rem;
+  }
+}
+
+.receipts_wrapper {
+  background-color: var(--soft-pink);
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: scroll;
+  padding-bottom: 5rem;
+
+  .wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-top: 0rem;
+  }
+
+  .receipt_heading {
+    padding: 1.5rem 2rem 2rem 2rem;
+  }
+
+  .close_receipts {
+    top: 1.5rem;
+    right: 2rem;
+  }
+}
+
+#forgot {
+  padding: 0.5rem;
+  .button_icon {
+    padding-left: 0.5rem;
+  }
+}
+
+@media (min-width: 350px) {
+}
+@media (min-width: 450px) {
+  .account_container .grid_item1 {
+    background-image: url(/static/images/big_icons/beer-login.png);
+    background-position: 40% 60%;
+  }
+  #forgot,
+  #login {
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    flex-grow: 1;
+    .button_icon {
+      padding-left: 3rem;
+    }
+  }
+}
+@media (min-width: 500px) {
+  .account_container .grid_item2 {
+    background-image: url(/static/images/big_icons/creditDone.jpg);
+    background-position: 55% 100%;
+  }
+  .account_container .grid_item3 {
+    background-image: url(/static/images/big_icons/padlock.png);
+    background-position: 54% 50%;
+    background-size: 120%;
+  }
+  .account_container .grid_item1 {
+    background-image: url(/static/images/big_icons/beer-login.png);
+    background-position: 40% 50%;
+    background-size: 115%;
+  }
+}
+@media (min-width: 650px) {
+  .log_in_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr;
+    grid-row-gap: 1.5rem;
+    grid-template-areas:
+      "login login pic pic"
+      "login login pic pic"
+      "button button pic pic";
+  }
+
+  .receipts_container .summary {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "down order price";
+    align-items: center;
+    justify-items: center;
+    padding: 0;
+  }
+  .receipts_container {
+    .down {
+      grid-area: down;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-self: flex-start;
+      align-items: center;
+    }
+    .receipt {
+      padding: 1rem 2rem 0.75rem 2rem;
+      max-width: 860px;
+    }
+
+    .order {
+      grid-area: order;
+      justify-self: flex-start;
+    }
+    .summary .price_container {
+      grid-area: price;
+      justify-self: flex-end;
+      align-self: center;
+    }
+    .buy_items {
+      grid-template-columns: 1.5fr 1fr 1fr;
+
+      .amount {
+        justify-self: flex-start;
+      }
+      .article {
+        padding-left: 4rem;
+      }
+    }
+
+    .total h3 {
+      padding-left: 4rem;
+    }
+  }
+  #forgot,
+  #login {
+    padding: 0.5rem;
+    width: 7rem;
+    .button_icon {
+      padding-left: 1rem;
+    }
+  }
+
+  .wrapper {
+    padding-top: 0rem;
+  }
+
+  .log_in_container .grid_item1 {
+    border-radius: var(--round-right);
+  }
+  .log_in_container .grid_item2 {
+    border-radius: var(--round-lu);
+  }
+  .log_in_container .grid_item3 {
+    padding-right: 1.5rem;
+    button {
+      height: auto;
+    }
+  }
+  .account_container .grid_item1 {
+    padding: 2rem 3rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .main_content {
+    padding: 1rem 1rem 3rem calc(1rem + 70px);
+  }
+  .check {
+    max-width: 10rem;
+  }
+
+  #login {
+    .button_icon {
+      padding-left: 2rem;
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  #login {
+    .button_icon {
+      padding-left: 3rem;
+    }
+  }
+}
+@media (min-height: 900px) {
+  .account_container .grid_item3,
+  .account_container .grid_item2 {
+    height: 45vw;
+    max-height: 300px;
+  }
+  .account_container {
+    padding-top: 3rem;
+  }
+}
+
+@media (min-width: 975px) {
+  .receipts_wrapper {
+    .receipt_heading {
+      padding: 1.5rem 2rem 2rem 4rem;
+    }
+  }
+}

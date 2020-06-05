@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Buy beer online at Foobar" />
+    <meta name="keywords" content="beer, brewing, bar, drink, foobar, competition, win a beer, student friendly prices, cheap" />
+    <meta name="author" content="Lisa Søndergaard | Kea - mmd 3. semester" />
+    <title>See which beers we offer || Foobar</title>
+    <link rel="stylesheet" href="sass/style.scss" />
+  </head>
+  <body class="beerBody">
+    <template class="product_temp">
+      <article>
+        <details class="product">
+          <summary>
+            <div class="summary">
+              <div class="down">
+                <img src="/static/images/svg_icons/yellow_arrow.svg" alt="Read more" class="arrow_down go_up" />
+                <h1 class="head12 name"></h1>
+              </div>
+              <div class="category">
+                <h4 class="head2">CATEGORY</h4>
+                <h3 class="head3 beer_cat"></h3>
+              </div>
+              <div class="alcohol">
+                <h4 class="head2">ALCOHOL</h4>
+                <p class="head3 beer_alc"></p>
+              </div>
+            </div>
+          </summary>
+          <div class="more_body">
+            <img src="" alt="" class="label" />
+            <div class="product_txt">
+              <h3 class="head2">AROMA</h3>
+              <p class="paragraph aroma"></p>
+              <h3 class="head2">APPEARANCE</h3>
+              <p class="paragraph appearance"></p>
+              <h3 class="head2">MOUTHFEEL</h3>
+              <p class="paragraph mouth_feel"></p>
+            </div>
+            <div class="product_txt">
+              <h3 class="head2">FLAVOUR</h3>
+              <p class="paragraph flavour"></p>
+              <h3 class="head2">OVERALL</h3>
+              <p class="paragraph overall"></p>
+            </div>
+          </div>
+        </details>
+      </article>
+    </template>
+    <nav class="desk_nav smooth_out">
+      <div class="max_height">
+        <div class="menu_item arrow_container"><img src="/static/images/svg_icons/yellow_arrow_right.svg" alt="Toggle menu" class="arrow" /></div>
+
+        <div class="menu_item menu-home itm">
+          <h2 class="head2">FOOBAR</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/home.svg" alt="home" class="icon home_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-buy itm">
+          <h2 class="head2">BUY</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/cart_new.svg" alt="Buy beer" class="icon buy_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-beer itm">
+          <h2 class="head2">BEER</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/beer_icon.svg" alt="Browse beer" class="icon beer_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-win itm">
+          <h2 class="head2">WIN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/rosette.svg" alt="Win" class="icon win_ico" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-login itm">
+          <h2 class="head2">LOG IN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/lock_icon_light.svg" alt="Log in" class="log_in_icon" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="beer_wrapper">
+      <h1 class="title beer_heading">THE BEER</h1>
+      <p class="paragraph disclamer">Here you can read about the selection of beers we brew. Not all beers are on tap at all times.</p>
+      <section class="beer_container">
+        <!-- APPEND LIST -->
+      </section>
+      <div class="product_right">
+        <button class="buy_beer head2 secondary">BUY SOME BEER</button>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

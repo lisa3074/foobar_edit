@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Buy beer online at Foobar" />
+    <meta name="keywords" content="beer, brewing, bar, drink, foobar, competition, win a beer, student friendly prices, cheap" />
+    <meta name="author" content="Lisa Søndergaard | Kea - mmd 3. semester" />
+    <title>Win a free beer! Foobar</title>
+    <link rel="stylesheet" href="sass/style.scss" />
+  </head>
+  <body class="winBody">
+    <nav class="desk_nav smooth_out">
+      <div class="max_height">
+        <div class="menu_item arrow_container"><img src="/static/images/svg_icons/yellow_arrow_right.svg" alt="Toggle menu" class="arrow" /></div>
+
+        <div class="menu_item menu-home itm">
+          <h2 class="head2">FOOBAR</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/home.svg" alt="home" class="icon home_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-buy itm">
+          <h2 class="head2">BUY</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/cart_new.svg" alt="Buy beer" class="icon buy_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-beer itm">
+          <h2 class="head2">BEER</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/beer_icon.svg" alt="Browse beer" class="icon beer_icon" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-win itm">
+          <h2 class="head2">WIN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/rosette.svg" alt="Win" class="icon win_ico" />
+          </div>
+        </div>
+
+        <div class="menu_item menu-login itm">
+          <h2 class="head2">LOG IN</h2>
+          <div class="icon_wrapper">
+            <img src="/static/images/svg_icons/lock_icon_light.svg" alt="Log in" class="log_in_icon" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="winner">
+      <article class="win_wrapper">
+        <div class="grid_item1">
+          <h1 class="win_title">WIN A FREE BEER</h1>
+          <p class="the_how win_subhead">HOW?</p>
+          <p class="win_text paragraph">For every 100 orders sold one lucky bastard wins one beer of own choosing. To win, you’ll need to have ordered within the hour from the announcement.</p>
+          <p class="win_text paragraph">If you were the lucky one, show your receipt at the bar. You have 15 minutes to come get your prize after the winner is announced.</p>
+        </div>
+
+        <article class="progres_circle grid_item2">
+          <div class="box">
+            <div class="percent">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 150 150" class="progress">
+                <circle cy="70" cx="70" r="70"></circle>
+                <circle cy="70" cx="70" r="70"></circle>
+              </svg>
+              <div class="number">
+                <p class="num percentage win_number"></p>
+                <p class="head1">ORDERS<br />MADE</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="win_bottom grid_item3">
+          <div class="wrap">
+            <p class="win_subhead">BEERS WON TODAY</p>
+            <p class="win_smallnumbers">9</p>
+          </div>
+          <div class="wrap">
+            <p class="win_subhead">ORDERS LEFT UNTIL WIN</p>
+            <p class="win_smallnumbers">49</p>
+          </div>
+          <div class="wrap">
+            <p class="win_subhead">AND SO... THE WINNER IS</p>
+            <p class="win_smallnumbers">???</p>
+          </div>
+        </article>
+      </article>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
