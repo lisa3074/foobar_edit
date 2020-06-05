@@ -2,7 +2,7 @@ const HTML = {};
 
 export async function getUser() {
   console.log("getUser");
-  HTML.endpoint = "https://foobar3exam2.app.com/";
+  HTML.endpoint = "https://foobar3exam2.herokuapp.com";
   HTML.restDb = "https://frontend-22d4.restdb.io/rest/foobar";
   HTML.apiKey = "5e9581a6436377171a0c234f";
   HTML.form = document.querySelector(".login_form");

@@ -14,7 +14,7 @@ const Queue = {
 
 export function indexDelegation() {
   console.log("indexDelegation");
-  HTML.url = "https://foobar3exam2.herokuapp.com/";
+  HTML.url = "https://foobar3exam2.herokuapp.com";
   HTML.array = [];
   HTML.jsonData;
   HTML.beforeLastServed;

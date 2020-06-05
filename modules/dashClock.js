@@ -11,7 +11,7 @@ async function getData() {
   HTML.amount = 0;
   HTML.count = 0;
   console.log("getData");
-  let response = await fetch("https://foobar3exam2.herokuapp.com/");
+  let response = await fetch("https://foobar3exam2.herokuapp.com");
   let jsonData = await response.json();
   countBeers(jsonData);
 }

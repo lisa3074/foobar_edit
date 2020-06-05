@@ -4,7 +4,7 @@ export function lineDelegation() {
 
 async function loadJson() {
   console.log("loadJson");
-  let response = await fetch("https://foobar3exam2.herokuapp.com/");
+  let response = await fetch("https://foobar3exam2.herokuapp.com");
   let jsonData = await response.json();
   queueLoops(jsonData.queue);
   serveLoop(jsonData.serving);
