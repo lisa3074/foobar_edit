@@ -62,16 +62,16 @@ function setData(servedToday) {
     percentUntilWin = thePercentage.substring(2, 4);
   }
 
-  if (percentUntilWin > "94" && percentUntilWin < "99") {
+  if (percentUntilWin > "90" && percentUntilWin <= "99") {
     const minus100 = servedToday - 99;
     let winner = setWinner(minus100, servedToday);
     console.log(winner);
-    setTimeout(() => {
-      put({ winner_number: winner });
-    }, 1500);
+    document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = "???";
+    put({ winner_number: winner });
+  } else {
+    getWinner();
   }
   const ordersLeft = 100 - percentUntilWin;
-  getWinner(percentUntilWin);
   displayProgress(percentUntilWin);
   displayData(winsNow, ordersLeft), percentUntilWin;
 }
@@ -101,7 +101,7 @@ async function put(payload) {
   const data = await response.json();
 }
 
-async function getWinner(percentUntilWin) {
+async function getWinner() {
   console.log("getWinner");
   let response = await fetch(`${HTML.winUrl}/${"5ece601e2313157900020042"}`, {
     method: "get",
@@ -114,11 +114,7 @@ async function getWinner(percentUntilWin) {
   const jsonData = await response.json();
   HTML.theWinner = jsonData.winner_number;
   console.log(HTML.theWinner);
-  if (percentUntilWin >= "00" && percentUntilWin < "90") {
-    displayWinner();
-  } else {
-    document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = "???";
-  }
+  displayWinner();
 }
 
 function displayProgress(percentUntilWin) {
@@ -131,7 +127,6 @@ function displayData(winsNow, ordersLeft) {
   console.log("displayData");
   document.querySelector(".wrap:nth-child(1)>.win_smallnumbers").textContent = winsNow;
   document.querySelector(".wrap:nth-child(2)>.win_smallnumbers").textContent = ordersLeft;
-  console.log(HTML.theWinner);
   setTimeout(() => {
     getData();
   }, 2000);
