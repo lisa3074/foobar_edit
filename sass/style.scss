@@ -14,6 +14,7 @@
 @use 'partials/dash_generel';
 @use 'partials/dash_win';
 @use 'partials/dash_line';
+@use 'partials/preloader';
 
 * {
   box-sizing: border-box;
@@ -111,6 +112,7 @@ summary {
 .checkout.primary {
   padding: 0.9rem 0.8rem;
 }
+
 //GENEREL CONTAINERS
 .home_container,
 .order_wrapper {

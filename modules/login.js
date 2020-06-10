@@ -20,10 +20,17 @@ export async function getUser() {
   checkIfValid(HTML.data);
   document.querySelector(".log_in_done").classList.remove("disabled");
   document.querySelector(".check").classList.remove("disabled");
+  document.querySelector(".preloader").classList.add("hide");
 }
 export function displayDisabledButton() {
   console.log("displayDisabledButton");
+  const account = document.querySelector(".account_container");
   document.querySelector(".log_in_done").classList.add("disabled");
+  if (account.classList[1] == "hide") {
+    document.querySelector(".preloader").classList.remove("hide");
+  } else {
+    document.querySelector(".preloader").classList.add("hide");
+  }
   document.querySelector(".check").classList.add("disabled");
 }
 function checkIfValid(data) {

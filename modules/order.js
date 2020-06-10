@@ -62,6 +62,8 @@ export function cartDelegation() {
   document.querySelector(".checkout").addEventListener("click", displayPayment);
   document.querySelector(".credit_card_nav .pay").addEventListener("click", (e) => {
     checkIfValid(e);
+    document.querySelector(".pay").classList.add("disabled");
+    document.querySelector(".preloader").classList.remove("hide");
   });
 
   document.querySelector(".thank_you_nav .log_in_done").addEventListener("click", function () {
@@ -295,6 +297,7 @@ function displayAvailableBeer(beer) {
     setTimeout(() => {
       if (e.classList[0] == "disabled") {
         e.classList.add("hide");
+        document.querySelector(".preloader").classList.add("hide");
       }
     }, 100);
   });
@@ -631,6 +634,7 @@ function checkIfAllIsValid() {
     setInvalid();
   }
   document.querySelector(".pay").classList.remove("disabled");
+  document.querySelector(".preloader").classList.add("hide");
 }
 
 function setInvalid() {
@@ -721,7 +725,7 @@ async function postHeroku() {
   console.log("postHeroku");
   //POST object to heroku DB
   const postData = JSON.stringify(HTML.order);
-  let response = await fetch(HTML.endpoint + "order", {
+  let response = await fetch(HTML.endpoint + "/order", {
     method: "post",
     headers: {
       "Content-Type": "application/json; charset=utf-8",

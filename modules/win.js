@@ -7,6 +7,11 @@ const Win = {
   serving3: "",
   servedToday: "",
 };
+export function init() {
+  console.log("init");
+  HTML.count = 0;
+  getData();
+}
 
 export async function getData() {
   HTML.url = "https://foobar3exam2.herokuapp.com";
@@ -14,6 +19,10 @@ export async function getData() {
   HTML.apiKey = "5e9581a6436377171a0c234f";
   HTML.beforeLastServed;
   HTML.theWinner;
+  HTML.lastTime = 0;
+  HTML.now;
+  HTML.theCount;
+
   console.log("getData");
   console.log("loadJson");
   let response = await fetch(HTML.url);
@@ -45,6 +54,7 @@ function makeObjects(jsonData) {
 
 function setData(servedToday) {
   console.log("setData");
+  const clicked = document.querySelector(".the_winner_is");
   const winsNow = Math.floor(servedToday / 100);
   let percentUntilWin;
   if (servedToday == 0) {
@@ -61,8 +71,8 @@ function setData(servedToday) {
     console.log(servedToday);
     percentUntilWin = thePercentage.substring(2, 4);
   }
-
-  if (percentUntilWin > "90" && percentUntilWin <= "99") {
+  //Code refracturing: instead of having the if/else parted into two functions (this and getWinner), i put it into one.
+  if (percentUntilWin > "93" && percentUntilWin <= "99") {
     const minus100 = servedToday - 99;
     let winner = setWinner(minus100, servedToday);
     console.log(winner);
@@ -71,18 +81,53 @@ function setData(servedToday) {
   } else {
     getWinner();
   }
+  let done;
+  if ((percentUntilWin >= "00" && percentUntilWin < "05") || percentUntilWin > "05") {
+    if (percentUntilWin == "00" && !done) {
+      clicked.dataset.clicked = "";
+      HTML.count = 0;
+      done = true;
+    }
+    if (clicked.dataset.clicked == "") {
+      displayAnouncement();
+    }
+  } else {
+    removeAnouncement();
+  }
   const ordersLeft = 100 - percentUntilWin;
   displayProgress(percentUntilWin);
   displayData(winsNow, ordersLeft), percentUntilWin;
 }
+
+function removeAnouncement() {
+  clearInterval(HTML.theCount);
+  document.querySelector(".the_winner_is").classList.remove("flex");
+  document.querySelector(".the_winner_is").classList.add("hide");
+}
+
+function displayAnouncement() {
+  document.querySelector(".the_winner_is").classList.remove("hide");
+  document.querySelector(".the_winner_is").classList.add("flex");
+  document.querySelector(".anounced_number").textContent = HTML.theWinner;
+
+  if (HTML.count === 0) {
+    HTML.count++;
+    console.log(HTML.count);
+    HTML.theCount = setInterval(displayRandomColor, 400);
+  }
+  document.querySelector(".the_winner_is button").addEventListener("click", function () {
+    document.querySelector(".the_winner_is").dataset.clicked = "yes";
+    removeAnouncement();
+  });
+}
+
+//I made the random calc in an else. Don't know whym but of course it didn't work when min < 0.
 function setWinner(min, max) {
   if (min < 0) {
-    min = 0;
-  } else {
-    const random = Math.floor(Math.random() * (max - min)) + min;
-    console.log(random);
-    return random;
+    min = 1;
   }
+  const random = Math.floor(Math.random() * (max - min)) + min;
+  return random;
 }
 
 async function put(payload) {
@@ -136,4 +181,41 @@ function displayWinner() {
   console.log("displayWinner");
   document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = HTML.theWinner;
   console.log(HTML.theWinner);
+}
+
+function displayRandomColor() {
+  console.log("displayRandomColor");
+  // Sætter farven til strengen der returneres fra randomBackgroundColor og randomTextColor
+  document.querySelector(".anouncement").style.backgroundColor = randomBackgroundColor();
+  document.querySelector(".anouncement p").style.color = randomTextColor();
+  document.querySelector(".anouncement").classList.toggle("purple");
+}
+
+function randomBackgroundColor() {
+  console.log("randomBackgroundColor");
+  const purple = document.querySelector(".purple");
+  let color;
+  if (purple) {
+    color = "#e7cb79";
+    document.querySelector(".anouncement").classList.remove("scale_down");
+    document.querySelector(".anouncement").classList.add("scale_up");
+    return color;
+  } else {
+    document.querySelector(".anouncement").classList.remove("scale_up");
+    document.querySelector(".anouncement").classList.add("scale_down");
+    color = "#9175bc";
+    return color;
+  }
+}
+function randomTextColor() {
+  console.log("randomTextColor");
+  const purple = document.querySelector(".purple");
+  let text;
+  if (purple) {
+    text = "#3a2058";
+    return text;
+  } else {
+    text = "#ffffff";
+    return text;
+  }
 }

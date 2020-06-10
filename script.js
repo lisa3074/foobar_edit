@@ -8,7 +8,8 @@ import { indexDelegation } from "./modules/queue";
 import { loadJsonBeer } from "./modules/beer";
 import { clockDelegation } from "./modules/dashClock";
 
-import { getData } from "./modules/win";
+//import { getData } from "./modules/win";
+import { init } from "./modules/win";
 import { card } from "./modules/card";
 import { dashWinDelegation } from "./modules/dashWin";
 import { lineDelegation } from "./modules/dashLine";
@@ -75,7 +76,8 @@ function appDelegation() {
   if (winBody) {
     document.querySelector(".menu-win").classList.add("chosen");
     document.querySelector(".menu-win .icon_wrapper").classList.add("chosen_img");
-    getData();
+    //getData();
+    init();
     toggleMenu();
   }
   if (dashBodyIndex) {

@@ -21,7 +21,7 @@ function displayData(theWinner) {
   console.log("displayData");
   const percentage = document.querySelector(".win_number").textContent;
   const toNumber = Number(percentage);
-  if (toNumber >= "00" && toNumber < "90") {
+  if (toNumber >= "00" && toNumber < "93") {
     document.querySelector(".last_win").textContent = theWinner;
     console.log("theWinner is displayed GGGGGGGGGGGG");
   } else {
