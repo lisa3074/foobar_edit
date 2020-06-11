@@ -63,6 +63,8 @@ export function cartDelegation() {
   document.querySelector(".credit_card_nav .pay").addEventListener("click", (e) => {
     checkIfValid(e);
     document.querySelector(".pay").classList.add("disabled");
+    document.querySelector(".order_loader").textContent = "CHECKING YOUR DETAILS";
+
     document.querySelector(".preloader").classList.remove("hide");
   });
 

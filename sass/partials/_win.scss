@@ -1,5 +1,8 @@
 .winner {
   padding: 1rem 1rem 5.5rem;
+  p.win_text {
+    line-height: 1.2rem;
+  }
   .win_title {
     font: var(--win-title);
     color: var(--white);
@@ -118,31 +121,6 @@
   .paragraph {
     padding-bottom: 1rem;
   }
-  .the_winner_is {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    //display: flex;
-    justify-content: center;
-    align-items: center;
-    .anouncement {
-      background-color: var(--purple);
-      width: 85%;
-      height: 50%;
-
-      border-radius: var(--rounded);
-      display: flex;
-      flex-wrap: nowrap;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      p:nth-child(2) {
-        font: var(--win-smallnumbers);
-      }
-    }
-  }
   .grid_item3 {
     .wrap:nth-child(1) {
       grid-area: grid1;
@@ -190,26 +168,6 @@
   }
 }
 
-.flex {
-  display: flex;
-}
-
-.scale_up {
-  transition: 0.5s;
-  transform: scale(1.1);
-}
-.scale_down {
-  transition: 0.5s;
-  transform: scale(1);
-}
-
-.the_winner_is .secondary {
-  margin-top: 4rem;
-  width: 8rem;
-  background-color: var(--soft-yellow);
-  color: var(--dark);
-}
-
 @media (min-width: 650px) {
   .winner {
     .grid_item1 {
@@ -246,11 +204,11 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem 2rem 2rem 100px;
-    .the_winner_is .anouncement {
+    /*  .the_winner_is .anouncement {
       margin-left: 70px;
       width: 50%;
       height: 50%;
-    }
+    } */
     .grid_item1 {
       grid-area: text;
     }
@@ -301,9 +259,10 @@
         max-width: 15vw;
       }
     }
-    .win_text {
+    p.win_text {
       font-size: 1.5vw;
       padding-right: 2rem;
+      line-height: 1.8vw;
     }
     .win_title {
       font-size: 2.5vw;
@@ -344,7 +303,7 @@
     .win_wrapper {
       display: grid;
       grid-template-columns: auto;
-      grid-template-rows: 15rem auto auto;
+      grid-template-rows: 22rem auto auto;
       grid-template-areas:
         "text"
         "progress"
@@ -353,6 +312,20 @@
 
     .grid_item1 {
       padding-bottom: 0;
+    }
+  }
+}
+@media (min-width: 350px) {
+  .winner {
+    .win_wrapper {
+      grid-template-rows: 19rem auto auto;
+    }
+  }
+  @media (min-width: 400px) {
+    .winner {
+      .win_wrapper {
+        grid-template-rows: 17rem auto auto;
+      }
     }
   }
 }

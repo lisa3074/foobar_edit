@@ -81,13 +81,8 @@ function setData(servedToday) {
   } else {
     getWinner();
   }
-  let done;
-  if ((percentUntilWin >= "00" && percentUntilWin < "05") || percentUntilWin > "05") {
-    if (percentUntilWin == "00" && !done) {
-      clicked.dataset.clicked = "";
-      HTML.count = 0;
-      done = true;
-    }
+
+  if ((percentUntilWin >= "00" && percentUntilWin < "03") || percentUntilWin == "90") {
     if (clicked.dataset.clicked == "") {
       displayAnouncement();
     }
@@ -103,16 +98,21 @@ function removeAnouncement() {
   clearInterval(HTML.theCount);
   document.querySelector(".the_winner_is").classList.remove("flex");
   document.querySelector(".the_winner_is").classList.add("hide");
+  document.querySelector(".anounced_number").textContent = "";
+  document.querySelector("audio").pause();
 }
 
 function displayAnouncement() {
   document.querySelector(".the_winner_is").classList.remove("hide");
   document.querySelector(".the_winner_is").classList.add("flex");
-  document.querySelector(".anounced_number").textContent = HTML.theWinner;
+  setTimeout(() => {
+    document.querySelector(".anounced_number").textContent = HTML.theWinner;
+  }, 3000);
 
   if (HTML.count === 0) {
     HTML.count++;
     console.log(HTML.count);
+    document.querySelector("audio").play();
     HTML.theCount = setInterval(displayRandomColor, 400);
   }
   document.querySelector(".the_winner_is button").addEventListener("click", function () {
@@ -183,7 +183,7 @@ function displayWinner() {
   console.log(HTML.theWinner);
 }
 
-function displayRandomColor() {
+export function displayRandomColor() {
   console.log("displayRandomColor");
   // Sætter farven til strengen der returneres fra randomBackgroundColor og randomTextColor
   document.querySelector(".anouncement").style.backgroundColor = randomBackgroundColor();
@@ -193,16 +193,27 @@ function displayRandomColor() {
 
 function randomBackgroundColor() {
   console.log("randomBackgroundColor");
+  const dashBody = document.querySelector(".dashBody");
   const purple = document.querySelector(".purple");
   let color;
   if (purple) {
     color = "#e7cb79";
-    document.querySelector(".anouncement").classList.remove("scale_down");
-    document.querySelector(".anouncement").classList.add("scale_up");
+    if (!dashBody) {
+      document.querySelector(".anouncement").classList.remove("scale_down");
+      document.querySelector(".anouncement").classList.add("scale_up");
+    } else {
+      document.querySelector(".anouncement p").classList.remove("scale_down");
+      document.querySelector(".anouncement p").classList.add("scale_up");
+    }
     return color;
   } else {
-    document.querySelector(".anouncement").classList.remove("scale_up");
-    document.querySelector(".anouncement").classList.add("scale_down");
+    if (!dashBody) {
+      document.querySelector(".anouncement").classList.remove("scale_up");
+      document.querySelector(".anouncement").classList.add("scale_down");
+    } else {
+      document.querySelector(".anouncement p").classList.add("scale_down");
+      document.querySelector(".anouncement p").classList.remove("scale_up");
+    }
     color = "#9175bc";
     return color;
   }

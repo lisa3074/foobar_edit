@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="apple-touch-icon" sizes="57x57" href="static/favicons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="static/favicons//apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="static/favicons//apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="static/favicons//apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="static/favicons//apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="static/favicons//apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="static/favicons//apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="static/favicons//apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicons//apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="static/favicons//android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicons//favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="static/favicons//favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicons//favicon-16x16.png" />
+    <link rel="manifesto" href="static/favicons//manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="static/favicons//ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Buy beer online at Foobar" />
@@ -55,7 +72,7 @@
         <div class="grid_item1">
           <h1 class="win_title">WIN A FREE BEER</h1>
           <p class="the_how win_subhead">HOW?</p>
-          <p class="win_text paragraph">For every 100 orders sold one lucky bastard wins one beer of own choosing. To win, you’ll need to have ordered within the hour from the announcement.</p>
+          <p class="win_text paragraph">For every 100 orders sold one lucky bastard wins one beer of own choosing. To win, you’ll need to have paid for one of the previous 100 orders. This way everybody gets a chance to win! The winner number is an order number, so check your receipts!</p>
           <p class="win_text paragraph">If you were the lucky one, show your receipt at the bar. You have 15 minutes to come get your prize after the winner is announced.</p>
         </div>
 
@@ -83,7 +100,7 @@
             <p class="win_smallnumbers">49</p>
           </div>
           <div class="wrap">
-            <p class="win_subhead">AND SO... THE WINNER IS</p>
+            <p class="win_subhead">THE WINNER IS ORDER NO</p>
             <p class="win_smallnumbers">?</p>
           </div>
         </article>
@@ -91,12 +108,12 @@
       <article class="the_winner_is hide" data-clicked="">
         <div class="anouncement purple">
           <p class="title">AND THE WINNER IS</p>
-          <p class="anounced_number">344</p>
+          <p class="anounced_number"></p>
           <button class="secondary head2">OK</button>
         </div>
       </article>
     </section>
-
+    <audio src="static/audio/appalause_small.mp3" type="audio/mpeg"></audio>
     <script src="script.js"></script>
   </body>
 </html>

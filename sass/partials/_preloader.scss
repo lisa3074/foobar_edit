@@ -10,13 +10,25 @@
   justify-content: center;
   align-items: center;
 }
+.pre_container {
+  width: 15rem;
+  height: 10rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-.login_loader {
-  transform: translate(-0.5rem, 2rem);
+.ani_container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
 }
-.order_loader {
-  transform: translate(-0.5rem, 2rem);
-}
+
 .load,
 .reload,
 .load2,
@@ -25,45 +37,23 @@
 .reload3 {
   width: 1.5rem;
   height: 1.5rem;
-  position: absolute;
   border-radius: 5px;
 }
 .load,
 .load2,
 .load3 {
   background-color: var(--purple);
+  position: relative;
 }
 .reload,
 .reload2,
 .reload3 {
   background-color: var(--yellow);
+  position: absolute;
 }
 .reload {
   animation: loader 4s ease-in-out infinite;
 }
-
-.pre1 {
-  transform: translate(1rem, -2rem);
-}
-.pre2 {
-  transform: translate(4rem, -2rem);
-}
-.pre3 {
-  transform: translate(7rem, -2rem);
-}
-
-.orderBody {
-  .pre1 {
-    transform: translate(-3rem, -2rem);
-  }
-  .pre2 {
-    transform: translate(1rem, -2rem);
-  }
-  .pre3 {
-    transform: translate(5rem, -2rem);
-  }
-}
-
 .reload2 {
   animation: loader2 4s ease-in-out infinite;
 }

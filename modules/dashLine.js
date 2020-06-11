@@ -22,7 +22,6 @@ function serveLoop(serving) {
 }
 
 function displayQueue(queue) {
-  console.log("displayQueue");
   let latestQueue;
   const clone = document.querySelector("article.line > template").content.cloneNode(true);
   clone.querySelector(".line_number").textContent = queue.id;
@@ -32,7 +31,6 @@ function displayQueue(queue) {
 }
 
 function displayLatestQueue(latestQueue) {
-  console.log("displayLatestQueue");
   document.querySelector(".newest_num").textContent = latestQueue;
 }
 
