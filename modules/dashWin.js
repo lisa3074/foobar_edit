@@ -59,7 +59,7 @@ function displayAnouncement(theWinner) {
   document.querySelector(".winner_big").classList.remove("grid");
   setTimeout(() => {
     document.querySelector(".anounced_number").textContent = theWinner;
-  }, 1000);
+  }, 3000);
   console.log(HTML.count);
   if (HTML.count === 0) {
     HTML.count++;
