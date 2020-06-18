@@ -82,10 +82,8 @@ function setData(servedToday) {
     getWinner();
   }
 
-  if ((percentUntilWin >= "00" && percentUntilWin < "03") || percentUntilWin == "90") {
-    if (clicked.dataset.clicked == "") {
-      displayAnouncement();
-    }
+  if (percentUntilWin >= "00" && percentUntilWin < "03" && clicked.dataset.clicked == "") {
+    displayAnouncement();
   } else {
     removeAnouncement();
   }
