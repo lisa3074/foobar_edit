@@ -5,6 +5,7 @@ const HTML = {};
 export function dashWinDelegation() {
   HTML.theCount;
   HTML.count = 0;
+  HTML.showWinner = false;
   getData();
 }
 async function getData() {
@@ -32,10 +33,12 @@ function displayData(theWinner) {
     document.querySelector(".last_win").textContent = "???";
     console.log("theWinner is NOT displayed GGGGGGGGGGGG");
   }
-  if (toNumber >= "00" && toNumber < "03") {
+  if (toNumber >= "00" && toNumber < "03" && HTML.showWinner == false) {
+    HTML.showWinner = true;
     displayAnouncement(theWinner);
-  } else {
-    removeAnouncement();
+    setTimeout(() => {
+      removeAnouncement();
+    }, 15000);
   }
   setTimeout(() => {
     getData();

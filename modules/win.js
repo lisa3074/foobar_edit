@@ -10,6 +10,8 @@ const Win = {
 export function init() {
   console.log("init");
   HTML.count = 0;
+  HTML.winnerNotDisplayed = true;
+  HTML.showWinner = undefined;
   getData();
 }
 
@@ -21,7 +23,7 @@ export async function getData() {
   HTML.theWinner;
   HTML.lastTime = 0;
   HTML.now;
-  HTML.theCount;
+  HTML.colorInterval;
 
   console.log("getData");
   console.log("loadJson");
@@ -54,7 +56,6 @@ function makeObjects(jsonData) {
 
 function setData(servedToday) {
   console.log("setData");
-  const clicked = document.querySelector(".the_winner_is");
   const winsNow = Math.floor(servedToday / 100);
   let percentUntilWin;
   if (servedToday == 0) {
@@ -72,20 +73,32 @@ function setData(servedToday) {
     percentUntilWin = thePercentage.substring(2, 4);
   }
   //Code refracturing: instead of having the if/else parted into two functions (this and getWinner), i put it into one.
-  if (percentUntilWin > "93" && percentUntilWin <= "99") {
+  if (percentUntilWin > "94" && percentUntilWin <= "99" && HTML.winnerNotDisplayed) {
+    HTML.winnerNotDisplayed = false;
     const minus100 = servedToday - 99;
     let winner = setWinner(minus100, servedToday);
-    console.log(winner);
+    console.log("PUT NY WINNER " + winner);
     document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = "???";
     put({ winner_number: winner });
+  } else if (percentUntilWin > "94" && percentUntilWin <= "99") {
+    document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = "???";
+  } else if (percentUntilWin >= "00" && percentUntilWin < "03" && HTML.showWinner == undefined) {
+    HTML.showWinner = true;
+    getWinner();
   } else {
     getWinner();
   }
 
-  if (percentUntilWin >= "00" && percentUntilWin < "03" && clicked.dataset.clicked == "") {
+  if (HTML.showWinner == true) {
+    HTML.showWinner = false;
     displayAnouncement();
-  } else {
-    removeAnouncement();
+    setTimeout(() => {
+      removeAnouncement();
+    }, 15000);
+    setTimeout(() => {
+      HTML.showWinner = undefined;
+      HTML.winnerNotDisplayed = true;
+    }, 6000000);
   }
   const ordersLeft = 100 - percentUntilWin;
   displayProgress(percentUntilWin);
@@ -93,7 +106,7 @@ function setData(servedToday) {
 }
 
 function removeAnouncement() {
-  clearInterval(HTML.theCount);
+  clearInterval(HTML.colorInterval);
   document.querySelector(".the_winner_is").classList.remove("flex");
   document.querySelector(".the_winner_is").classList.add("hide");
   document.querySelector(".anounced_number").textContent = "";
@@ -106,15 +119,9 @@ function displayAnouncement() {
   setTimeout(() => {
     document.querySelector(".anounced_number").textContent = HTML.theWinner;
   }, 3000);
-
-  if (HTML.count === 0) {
-    HTML.count++;
-    console.log(HTML.count);
-    document.querySelector("audio").play();
-    HTML.theCount = setInterval(displayRandomColor, 400);
-  }
+  document.querySelector("audio").play();
+  HTML.colorInterval = setInterval(displayRandomColor, 400);
   document.querySelector(".the_winner_is button").addEventListener("click", function () {
-    document.querySelector(".the_winner_is").dataset.clicked = "yes";
     removeAnouncement();
   });
 }
@@ -130,7 +137,9 @@ function setWinner(min, max) {
 
 async function put(payload) {
   console.log("put");
+  console.log(payload);
   const postData = JSON.stringify(payload);
+  console.log(postData);
   //Sikrer det er det rigtige id der redigeres
   let response = await fetch(`${HTML.winUrl}/${"5ece601e2313157900020042"}`, {
     method: "put",
@@ -142,10 +151,12 @@ async function put(payload) {
     body: postData,
   });
   const data = await response.json();
+  console.log(data.winner_number);
 }
 
 async function getWinner() {
   console.log("getWinner");
+  console.log("winnerNotDisplayed " + HTML.winnerNotDisplayed);
   let response = await fetch(`${HTML.winUrl}/${"5ece601e2313157900020042"}`, {
     method: "get",
     headers: {
@@ -178,6 +189,7 @@ function displayData(winsNow, ordersLeft) {
 function displayWinner() {
   console.log("displayWinner");
   document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = HTML.theWinner;
+  document.querySelector(".anounced_number").textContent = HTML.theWinner;
   console.log(HTML.theWinner);
 }
 

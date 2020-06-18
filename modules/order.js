@@ -744,6 +744,7 @@ async function postRestDb(payload) {
   console.log(payload);
   //POST object to restDB
   const postData = JSON.stringify(payload);
+  console.log(postData);
   let response = await fetch(HTML.restDb, {
     method: "post",
     headers: {
