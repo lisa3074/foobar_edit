@@ -72,16 +72,18 @@ function setData(servedToday) {
     percentUntilWin = thePercentage.substring(2, 4);
   }
   //Code refracturing: instead of having the if/else parted into two functions (this and getWinner), i put it into one.
-  if (percentUntilWin > "93" && percentUntilWin <= "99") {
+  if (percentUntilWin > "91" && percentUntilWin < "96") {
     const minus100 = servedToday - 99;
     let winner = setWinner(minus100, servedToday);
     console.log(winner);
     document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = "???";
     put({ winner_number: winner });
+  } else if (percentUntilWin > "96" && percentUntilWin <= "99") {
+    document.querySelector(".wrap:nth-child(3)>.win_smallnumbers").textContent = "???";
   } else {
     getWinner();
   }
-
+  JAAAA;
   if (percentUntilWin >= "00" && percentUntilWin < "03" && clicked.dataset.clicked == "") {
     displayAnouncement();
   } else {

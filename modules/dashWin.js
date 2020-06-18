@@ -3,6 +3,7 @@ import { displayRandomColor } from "./win";
 const HTML = {};
 
 export function dashWinDelegation() {
+  console.log("dashWinDelegation");
   HTML.theCount;
   HTML.count = 0;
   getData();
