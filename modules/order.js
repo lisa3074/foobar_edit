@@ -106,9 +106,7 @@ function payDelegation() {
 function goToPage(locationSite) {
   console.log("goToPage");
   document.querySelector(".orderBody").classList.add("fadeOutQuick");
-  setTimeout(() => {
-    location.href = locationSite;
-  }, 300);
+  location.href = locationSite;
 }
 
 function closePopUp() {
