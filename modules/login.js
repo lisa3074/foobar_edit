@@ -41,7 +41,9 @@ function checkIfValid(data) {
 
   //Check validity
   data.forEach((order) => {
-    if (order.username == username) {
+    if (order.username == "" || order.password == "") {
+      userValid = false;
+    } else if (order.username == username) {
       console.log("Username correct");
       userValid = true;
       if (order.username == username && order.password == password) {
