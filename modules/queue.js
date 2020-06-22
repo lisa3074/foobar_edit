@@ -27,7 +27,14 @@ async function loadJson() {
   let response = await fetch(HTML.url);
   HTML.jsonData = await response.json();
   makeObjects();
+  removeLoading();
 }
+
+function removeLoading() {
+  console.log("removeLoading");
+  document.querySelector(".preloader").classList.add("hide");
+}
+
 function makeObjects() {
   let now;
   console.log("makeObjects");
