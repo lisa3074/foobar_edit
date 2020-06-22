@@ -108,6 +108,7 @@ function goToPage(locationSite) {
   document.querySelector(".orderBody").classList.add("fadeOutQuick");
   setTimeout(() => {
     location.href = locationSite;
+    //wait half a second
   }, 500);
 }
 
