@@ -41,7 +41,6 @@ export function cartDelegation() {
   HTML.total_amount = 0;
   HTML.total_price = 0;
   HTML.data;
-  HTML.order;
   HTML.amount = 0;
   HTML.theId;
   HTML.formIsValid;
@@ -184,24 +183,13 @@ function invalidListners() {
 
 async function checkAvailability() {
   console.log("checkAvailability");
-  let beerArray = [];
-  let beerName = {};
-
   //if some tabs are empty
-  let response = await fetch(HTML.endpoint, {
-    method: "get",
-  });
+  let response = await fetch(HTML.endpoint);
   HTML.data = await response.json();
-  HTML.data.storage.forEach((beer) => {
-    beerName = beer.name;
-    beerArray.push(beerName);
-  });
-  beerArray.forEach((e) => {
+  HTML.data.taps.forEach(() => {
     for (let i = 0; i < HTML.data.taps.length; i++) {
-      if (HTML.data.taps[i]["beer"] == e) {
-        const availableBeer = HTML.data.taps[i]["beer"];
-        displayAvailableBeer(availableBeer);
-      }
+      const availableBeer = HTML.data.taps[i]["beer"];
+      displayAvailableBeer(availableBeer);
     }
   });
 }
@@ -210,13 +198,13 @@ async function loadJson() {
   console.log("loadJson - order.js");
   let response = await fetch(HTML.url);
   const jsonData = await response.json();
-  makeBeerObject(HTML.productArray, jsonData);
+  makeBeerObject(jsonData);
   setTimeout(() => {
     checkAvailability();
   }, 200);
 }
 
-function makeBeerObject(productArray, jsonData) {
+function makeBeerObject(jsonData) {
   console.log("makeObject");
   jsonData.forEach((product) => {
     const productObject = Object.create(Product);
@@ -230,10 +218,10 @@ function makeBeerObject(productArray, jsonData) {
     productObject.flavor = product.description.flavor;
     productObject.overall = product.description.overallImpression;
     productObject.mouthfeel = product.description.mouthfeel;
-    productArray.push(productObject);
+    HTML.productArray.push(productObject);
   });
   makeAmountObject(jsonData);
-  fetchProducts(productArray);
+  fetchProducts(HTML.productArray);
 }
 function makeAmountObject(jsonData) {
   console.log("makeAmountObject");
@@ -243,7 +231,6 @@ function makeAmountObject(jsonData) {
     amountObject.amount = HTML.amount;
     HTML.amountArray.push(amountObject);
   });
-  return HTML.amountArray;
 }
 
 function fetchProducts(product) {
@@ -306,8 +293,8 @@ function displayAvailableBeer(beer) {
 function displayProducts(beer) {
   console.log("displayProducts");
   HTML.amount = "0";
-  const dot = beer.label.toString().indexOf(".");
-  const labelName = beer.label.toString().substring(0, dot);
+  const dot = beer.label.indexOf(".");
+  const labelName = beer.label.substring(0, dot);
   //Put name as class on parent article to differentiate
   const className = beer.name;
   const noSpace = className.toLowerCase().replace(" ", "");
@@ -350,8 +337,8 @@ function displayReadMore(beer) {
   setTimeout(() => {
     document.querySelector(".order_container").classList.add("hide");
   }, 500);
-  const dot = beer.label.toString().indexOf(".");
-  const labelName = beer.label.toString().substring(0, dot);
+  const dot = beer.label.indexOf(".");
+  const labelName = beer.label.substring(0, dot);
   if (beer.name == HTML.filter) {
     document.querySelector(".more_container .name").textContent = beer.name;
     document.querySelector(".more_container .cat").textContent = beer.category;
@@ -409,7 +396,7 @@ function setSummary() {
       clone.querySelector(".final_amount").textContent = ordered.amount * 30 + " DKK";
       document.querySelector(".result_list").appendChild(clone);
 
-      HTML.order = createHerokuObject(ordered);
+      createHerokuObject(ordered);
     }
   });
   displaySummary();
@@ -438,7 +425,6 @@ function createHerokuObject(ordered) {
   herokuObject.amount = ordered.amount;
   herokuObject.price = ordered.amount * 30;
   HTML.herokuArray.push(herokuObject);
-  return HTML.herokuArray;
 }
 
 /*//////////////////////////////////
@@ -486,6 +472,8 @@ function logInOrSignUp() {
         console.log("log in");
         document.querySelector("#secure_pass").removeAttribute("required");
         document.querySelector(".secure_pass").classList.add("hide");
+        document.querySelector("#username").value = "";
+        document.querySelector("#password").value = "";
       }
       if (newAccount) {
         console.log("create account");
@@ -522,6 +510,7 @@ function checkIfValid(e) {
     el.classList.remove("invalid");
     if (document.querySelector("#year").value < year.toString().substring(2, 4)) {
       document.querySelector("#year").classList.add("invalid");
+      document.querySelector(".invalid_year").classList.remove("hide");
     }
   });
   HTML.formIsValid = matchPassWord();
@@ -609,6 +598,8 @@ function checkIfAllIsValid() {
   console.log("checkIfAllIsValid");
   const forElements = form.querySelectorAll("input");
   const noAccount = document.querySelector("#no_account").checked;
+  const year = document.querySelector("#year");
+
   if (noAccount) {
     console.log("noAccount");
     document.querySelector("#password").removeAttribute("pattern");
@@ -617,6 +608,9 @@ function checkIfAllIsValid() {
     document.querySelector("#password").setAttribute("pattern", requirement);
   }
   HTML.isValid = form.checkValidity();
+  if (year.classList[1] == "invalid") {
+    HTML.isValid = false;
+  }
   console.log(HTML.isValid);
   console.log(HTML.formIsValid);
   console.log(HTML.isUserValid);
@@ -724,7 +718,7 @@ function updateUserAndPass() {
 async function postHeroku() {
   console.log("postHeroku");
   //POST object to heroku DB
-  const postData = JSON.stringify(HTML.order);
+  const postData = JSON.stringify(HTML.herokuArray);
   let response = await fetch(HTML.endpoint + "/order", {
     method: "post",
     headers: {

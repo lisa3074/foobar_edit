@@ -6,7 +6,7 @@ export async function getUser() {
   HTML.restDb = "https://frontend-22d4.restdb.io/rest/foobar";
   HTML.apiKey = "5e9581a6436377171a0c234f";
   HTML.form = document.querySelector(".login_form");
-  HTML.data;
+  //HTML.data;
   //GET
   let response = await fetch(HTML.restDb, {
     method: "get",
@@ -17,7 +17,8 @@ export async function getUser() {
     },
   });
   HTML.data = await response.json();
-  checkIfValid(HTML.data);
+  checkIfValid();
+  changeValue();
   document.querySelector(".log_in_done").classList.remove("disabled");
   document.querySelector(".check").classList.remove("disabled");
   document.querySelector(".preloader").classList.add("hide");
@@ -33,14 +34,31 @@ export function displayDisabledButton() {
   }
   document.querySelector(".check").classList.add("disabled");
 }
-function checkIfValid(data) {
+
+function changeValue() {
+  console.log("changeValue");
+  const invalid_password = document.querySelector(".invalid_password");
+  const invalid_user = document.querySelector(".invalid_user");
+  const password = document.querySelector("#password_login");
+  const username = document.querySelector("#username_login");
+  password.addEventListener("keyup", function () {
+    invalid_password.classList.add("hide");
+    password.classList.remove("invalid");
+  });
+  username.addEventListener("keyup", function () {
+    invalid_user.classList.add("hide");
+    username.classList.remove("invalid");
+  });
+}
+
+function checkIfValid() {
   console.log("checkIfValid");
   const username = document.querySelector("#username_login").value;
   const password = document.querySelector("#password_login").value;
   let userValid;
 
   //Check validity
-  data.forEach((order) => {
+  HTML.data.forEach((order) => {
     if (order.username == "" || order.password == "") {
       userValid = false;
     } else if (order.username == username) {
@@ -48,11 +66,10 @@ function checkIfValid(data) {
       userValid = true;
       if (order.username == username && order.password == password) {
         console.log("username and password correct");
-        loginDelegation(username, data, password);
+        loginDelegation(username, password);
       } else {
         console.log("password incorrect");
         displayError(userValid);
-        // userValid = true;
       }
     } else {
       console.log("username incorrect");
@@ -64,28 +81,34 @@ function displayError(userValid) {
   console.log("displayError");
   const username = document.querySelector("#username_login");
   const password = document.querySelector("#password_login");
+  const invalid_password = document.querySelector(".invalid_password");
+  const invalid_user = document.querySelector(".invalid_user");
 
   if (userValid) {
     console.log("correct username");
     username.classList.remove("invalid");
     password.classList.add("invalid");
-    document.querySelector(".invalid_user").classList.add("hide");
-    document.querySelector(".invalid_password").classList.remove("hide");
+    invalid_user.classList.add("hide");
+    invalid_password.classList.remove("hide");
   } else {
     console.log("invalid username");
     username.classList.add("invalid");
     password.classList.add("invalid");
-    document.querySelector(".invalid_user").classList.remove("hide");
-    document.querySelector(".invalid_password").classList.remove("hide");
+    invalid_user.classList.remove("hide");
+    invalid_password.classList.remove("hide");
   }
 }
 
-function loginDelegation(username, data, password) {
+function loginDelegation(username, password) {
   console.log("loginDelegation");
+  document.querySelector(".invalid_password").classList.add("hide");
+  document.querySelector("#password_login").classList.remove("invalid");
+  document.querySelector(".invalid_user").classList.add("hide");
+  document.querySelector("#username_login").classList.remove("invalid");
   displayAccount();
   logout();
   document.querySelector(".account_container .grid_item2").addEventListener("click", function () {
-    displayReceipts(username, data, password);
+    displayReceipts(username, password);
   });
   document.querySelector(".check_status .check").addEventListener("click", function (e) {
     e.preventDefault;
@@ -108,20 +131,16 @@ function logout() {
     document.querySelector(".log_in_container").classList.remove("hide");
     document.querySelector(".account_container").classList.add("hide");
     document.querySelector(".receipts_wrapper").classList.add("hide");
-    document.querySelector(".invalid_password").classList.add("hide");
-    document.querySelector(".invalid_user").classList.add("hide");
-    document.querySelector("#password_login").classList.remove("invalid");
-    document.querySelector("#username_login").classList.remove("invalid");
     HTML.form.reset();
     document.querySelector(".main_content .login_heading").textContent = "LOG IN";
   });
 }
 
-function displayReceipts(username, data, password) {
+function displayReceipts(username, password) {
   console.log("displayReceipts");
   document.querySelector(".receipts_container").innerHTML = "";
-  data.sort((a, b) => b.time - a.time);
-  data.forEach((order) => {
+  HTML.data.sort((a, b) => b.time - a.time);
+  HTML.data.forEach((order) => {
     if (username == order.username && password == order.password) {
       console.table(order);
       const clone = document.querySelector(".receipt_temp").content.cloneNode(true);
@@ -156,7 +175,8 @@ async function deleteIt(id) {
   console.log("delete");
   //elementet med det pågældende id (der er sendt med videre fra klik) slettes med det samme i DOM'en
   document.querySelector(`article[data-id="${id}"]`).remove();
-  let response = await fetch(`${HTML.restDb}/${id}`, {
+  //Herefter slettes elementet i db
+  await fetch(`${HTML.restDb}/${id}`, {
     method: "delete",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
@@ -164,8 +184,6 @@ async function deleteIt(id) {
       "cache-control": "no-cache",
     },
   });
-  //Herefter slettes elementet i db
-  HTML.data = await response.json();
 }
 
 async function getStatus(e) {

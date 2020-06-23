@@ -1,8 +1,4 @@
-export function lineDelegation() {
-  loadJson();
-}
-
-async function loadJson() {
+export async function loadJson() {
   console.log("loadJson");
   let response = await fetch("https://foobar3exam2.herokuapp.com");
   let jsonData = await response.json();
@@ -22,16 +18,10 @@ function serveLoop(serving) {
 }
 
 function displayQueue(queue) {
-  let latestQueue;
   const clone = document.querySelector("article.line > template").content.cloneNode(true);
   clone.querySelector(".line_number").textContent = queue.id;
   document.querySelector("article.line > div.in_line.grid").appendChild(clone);
-  latestQueue = queue.id;
-  displayLatestQueue(latestQueue);
-}
-
-function displayLatestQueue(latestQueue) {
-  document.querySelector(".newest_num").textContent = latestQueue;
+  document.querySelector(".newest_num").textContent = queue.id;
 }
 
 function displayServed(serving) {

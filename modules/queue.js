@@ -32,7 +32,10 @@ async function loadJson() {
 
 function removeLoading() {
   console.log("removeLoading");
-  document.querySelector(".preloader").classList.add("hide");
+  const indexBody = document.querySelector(".indexBody");
+  if (indexBody) {
+    document.querySelector(".preloader").classList.add("hide");
+  }
 }
 
 function makeObjects() {
@@ -58,16 +61,16 @@ function loops(foobarObject) {
   const queue = foobarObject.queueLength;
   HTML.array.unshift(queue);
   if (HTML.array.length <= 1) {
-    console.log("under 10");
+    console.log("under 1");
   } else {
-    console.log("over 10");
+    console.log("over 1");
     HTML.array.pop();
   }
   displayQueue(foobarObject);
 }
 function displayQueue(foobarObject) {
   document.querySelector(".wrap:nth-child(1) > .q_bar").classList.remove("fullHeight");
-  for (let number = 0; number < 5; number++) {
+  for (let number = 0; number < 1; number++) {
     console.log("displayQueue");
     const timeStamp = document.querySelectorAll(".time");
     const queueNow = document.querySelectorAll(".queue_num");
@@ -82,18 +85,15 @@ function displayQueue(foobarObject) {
     const theRightIime = rightTime.substring(15, 21);
 
     //The first bar (for animation)
-    document.querySelectorAll(".wrap:nth-child(1) > .q_bar").forEach((firstBar) => {
-      firstBar.classList.add("nullHeight");
-    });
+    document.querySelector(".wrap > .q_bar").classList.add("nullHeight");
+
     //The other bars
-    const bars = document.querySelectorAll(`.queue_box > .wrap:nth-child(${number + 1}) > .q_bar`);
-    const barNum = document.querySelectorAll(`.queue_box > .wrap:nth-child(${number + 1}) > .q_num`);
+    const bar = document.querySelector(`.queue_box > .wrap > .q_bar`);
+    const barNum = document.querySelector(`.queue_box > .wrap > .q_num`);
     if (HTML.array[number] == "0") {
       HTML.array[number] = "0.5";
     }
-    bars.forEach((bar) => {
-      bar.style.setProperty("--height", HTML.array[number]);
-    });
+    bar.style.setProperty("--height", HTML.array[number]);
 
     const winsNow = Math.floor(foobarObject.servedToday / 100);
     if (foobarObject.servedToday == 0) {
@@ -105,9 +105,7 @@ function displayQueue(foobarObject) {
     queueNow.forEach((queue) => {
       queue.textContent = foobarObject.queueLength;
     });
-    barNum.forEach((num) => {
-      num.textContent = Math.floor(HTML.array[number]) + " IN LINE";
-    });
+    barNum.textContent = Math.floor(HTML.array[number]) + " IN LINE";
     wins.forEach((win) => {
       win.textContent = winsNow;
     });
@@ -118,12 +116,8 @@ function displayQueue(foobarObject) {
   }
   setTimeout(() => {
     loadJson();
-    document.querySelectorAll(".wrap:nth-child(1) > .q_bar").forEach((firstBar) => {
-      firstBar.classList.remove("nullHeight");
-    });
-    document.querySelectorAll(".wrap:nth-child(1) > .q_bar").forEach((firstWrap) => {
-      firstWrap.classList.add("fullHeight");
-    });
+    document.querySelector(".wrap > .q_bar").classList.remove("nullHeight");
+    document.querySelector(".wrap > .q_bar").classList.add("fullHeight");
   }, 10000);
 }
 function setData(servedToday) {

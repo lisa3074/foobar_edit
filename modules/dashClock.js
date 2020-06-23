@@ -1,13 +1,6 @@
 const HTML = {};
 
-export function clockDelegation() {
-  console.log("clockDelegation");
-  HTML.count = 0;
-  HTML.amount;
-
-  getData();
-}
-async function getData() {
+export async function getData() {
   HTML.amount = 0;
   HTML.count = 0;
   console.log("getData");

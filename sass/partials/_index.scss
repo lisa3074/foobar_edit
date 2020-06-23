@@ -21,8 +21,7 @@ section.dashBody {
 }
 
 .win_percent {
-  font-size: 1rem;
-  padding-left: 0.5rem;
+  font-size: 0.8rem;
 }
 .win_number {
   font-size: 1.5rem;
@@ -243,6 +242,7 @@ svg {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: var(--dark);

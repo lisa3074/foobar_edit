@@ -6,13 +6,13 @@ import { cartDelegation } from "./modules/order";
 import { toggleMenu } from "./modules/navigation";
 import { indexDelegation } from "./modules/queue";
 import { loadJsonBeer } from "./modules/beer";
-import { clockDelegation } from "./modules/dashClock";
+import { getData as clockDelegation } from "./modules/dashClock";
 
 //import { getData } from "./modules/win";
 import { init } from "./modules/win";
 import { card } from "./modules/card";
 import { dashWinDelegation } from "./modules/dashWin";
-import { lineDelegation } from "./modules/dashLine";
+import { loadJson as lineDelegation } from "./modules/dashLine";
 
 window.addEventListener("DOMContentLoaded", appDelegation);
 
